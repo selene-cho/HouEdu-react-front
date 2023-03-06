@@ -1,0 +1,24 @@
+.header {
+  width: 100vw;
+  height: 65px;
+  padding: 0 20px;
+  border-bottom: 1px solid #edeff2;
+  z-index: 100;
+  .container {
+    display: flex;
+    max-width: 1400px;
+    height: 100%;
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10px;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1 1 auto;
+    }
+  }
+}
