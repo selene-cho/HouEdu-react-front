@@ -1,0 +1,15 @@
+@import '../../scss/styles.scss';
+
+.logo {
+  border: 4px solid $logoColor;
+  border-radius: 30px;
+  padding: 2px 15px;
+  margin: 15px;
+  h1 {
+    font-family: 'Fugaz One', scursive;
+    font-size: 1.5625rem;
+    color: $logoColor;
+    text-align: center;
+    align-items: center;
+  }
+}

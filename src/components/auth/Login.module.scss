@@ -1,0 +1,14 @@
+@import '../../scss/styles.scss';
+
+.wrapper {
+  position: absolute;
+  @include set-center;
+  top: 50%;
+  .container {
+    width: 795px;
+    @include set-center;
+    .form {
+      @include set-center;
+    }
+  }
+}

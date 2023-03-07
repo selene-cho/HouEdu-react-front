@@ -8,6 +8,9 @@ import Lectures from './pages/Lectures';
 import NewLecture from './pages/NewLecture';
 import MyCart from './pages/MyCart';
 import NotFound from './pages/NotFound';
+import Login from './components/auth/Login';
+import SignUp from './components/auth/SignUp';
+import './scss/index.scss';
 
 const router = createBrowserRouter([
   {
@@ -22,10 +25,14 @@ const router = createBrowserRouter([
       { path: '/carts', element: <MyCart /> },
     ],
   },
-  // {
-  //   path: "/login",
-  //   element: <Login />,
-  // },
+  {
+    path: '/signup',
+    element: <SignUp />,
+  },
+  {
+    path: '/login',
+    element: <Login />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -1,24 +1,37 @@
+@import '../../scss/styles.scss';
+
 .header {
   width: 100vw;
-  height: 65px;
+  height: 70px;
   padding: 0 20px;
-  border-bottom: 1px solid #edeff2;
+  border-bottom: 1px solid $borderColor;
   z-index: 100;
   .container {
     display: flex;
     max-width: 1400px;
     height: 100%;
-    .logo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-right: 10px;
-    }
+    align-items: center;
     .nav {
       display: flex;
+      flex: 1 1 auto;
       justify-content: space-between;
       align-items: center;
-      flex: 1 1 auto;
+      font-weight: 500;
+      .navLeft {
+        letter-spacing: 8px;
+        margin: 0 20px;
+      }
+      .navRight {
+        span {
+          margin: 0 5px;
+          .login {
+            @include set-navButton;
+          }
+          .signup {
+            @include set-navButton;
+          }
+        }
+      }
     }
   }
 }
