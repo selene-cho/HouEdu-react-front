@@ -2,11 +2,14 @@
 
 .wrapper {
   @include set-center;
-  position: absolute;
-  top: 30%;
+  justify-content: center;
+  position: relative;
+  width: 600px;
+  height: 100vh;
+  margin: 0 auto;
   .container {
-    width: 795px;
     @include set-center;
+    width: 100%;
     .form {
       @include set-center;
     }
