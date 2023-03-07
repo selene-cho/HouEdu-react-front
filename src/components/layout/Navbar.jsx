@@ -11,7 +11,15 @@ export default function Navbar() {
         <Logo />
         <nav className={styles.nav}>
           <div className={styles.navLeft}>
-            <Link to="/courses">강의</Link>
+            <span>
+              <Link to="/courses">강의</Link>
+            </span>
+            <span>
+              <Link to="/reviews">수강평</Link>
+            </span>
+            <span>
+              <Link to="/gallery">수강생 작품</Link>
+            </span>
           </div>
           <div className={styles.navRight}>
             <span>

@@ -7,8 +7,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: 'Noto Sans KR', 'IBM Plex Sans', sans-serif;
-  font-size: 14px;
   margin: 0;
   padding: 0;
 }
@@ -16,6 +14,10 @@ a {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+}
+body {
+  font-family: 'Noto Sans KR', 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
 }
 button {
   background-color: transparent;
