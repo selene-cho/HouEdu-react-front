@@ -1,0 +1,17 @@
+@import '../../scss/styles.scss';
+
+.wrapper {
+  @include set-center;
+  justify-content: center;
+  position: relative;
+  width: 600px;
+  height: 100vh;
+  margin: 0 auto;
+  .container {
+    @include set-center;
+    width: 100%;
+    .form {
+      @include set-center;
+    }
+  }
+}
