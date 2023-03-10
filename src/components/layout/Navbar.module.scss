@@ -29,16 +29,13 @@
         }
       }
       .navRight {
-        .showLogin {
-          .login {
-            margin: 0 5px;
-            @include set-navButton;
-          }
-          .signup {
-            margin: 0 5px;
-            @include set-navButton;
-            background-color: $buttonColor;
-          }
+        display: flex;
+        > li {
+          margin: 0 5px;
+          @include set-navButton;
+        }
+        .signup {
+          background-color: $buttonColor;
         }
       }
     }
