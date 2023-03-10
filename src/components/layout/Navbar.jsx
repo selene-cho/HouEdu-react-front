@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { BsCartPlusFill, BsPencilSquare } from 'react-icons/bs';
 import styles from './Navbar.module.scss';
 import Logo from '../common/Logo';
 import UserMenu from '../UserMenu';
 // import { isLoggedInVar } from 'apollo';
 
+function getLinkStyle({ isActive }) {
+  return {
+    color: isActive ? '#0378a6' : '',
+  };
+}
 export default function Navbar() {
   return (
     <header className={styles.header}>
@@ -14,13 +19,19 @@ export default function Navbar() {
         <nav className={styles.nav}>
           <ul className={styles.navLeft}>
             <li>
-              <Link to="/courses">강의</Link>
+              <NavLink style={getLinkStyle} to="/courses">
+                강의
+              </NavLink>
             </li>
             <li>
-              <Link to="/reviews">수강평</Link>
+              <NavLink style={getLinkStyle} to="/reviews">
+                수강평
+              </NavLink>
             </li>
             <li>
-              <Link to="/portfolio">수강생 작품</Link>
+              <NavLink style={getLinkStyle} to="/portfolio">
+                수강생 작품
+              </NavLink>
             </li>
           </ul>
           <ul className={styles.navRight}>
