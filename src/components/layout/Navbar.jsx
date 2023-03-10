@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { BsCartPlusFill, BsPencilSquare } from 'react-icons/bs';
 import styles from './Navbar.module.scss';
 import Logo from '../common/Logo';
+import UserMenu from '../UserMenu';
 // import { isLoggedInVar } from 'apollo';
 
 export default function Navbar() {
@@ -22,27 +23,19 @@ export default function Navbar() {
               <Link to="/portfolio">수강생 작품</Link>
             </li>
           </ul>
-          <div className={styles.navRight}>
-            <div>
+          <ul className={styles.navRight}>
+            <li>
               <Link to="/login" className={styles.login}>
                 Log in
               </Link>
-              <Link to="/signup" className={styles.signup}>
-                Sign Up
-              </Link>
-            </div>
-            <div>
-              <button>nickname</button>
-              <div className={styles.myMenu}>
-                <Link to="/carts">
-                  <BsCartPlusFill />
-                </Link>
-                <span>내 강의실</span>
-                <span>마이페이지</span>
-                <button>Logout</button>
-              </div>
-            </div>
-          </div>
+            </li>
+            <li className={styles.signup}>
+              <Link to="/signup">Sign Up</Link>
+            </li>
+            <li>
+              <UserMenu />
+            </li>
+          </ul>
         </nav>
       </div>
     </header>
