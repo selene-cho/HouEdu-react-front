@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function Courses() {
+export default function CourseList() {
   const [text, setText] = useState('');
   const navigate = useNavigate(); // 코드상에서 동적으로 이동
   const handleChange = (e) => {
@@ -20,7 +20,7 @@ export default function Courses() {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="video id: "
+          placeholder="course id: "
           value={text}
           onChange={handleChange}
         />

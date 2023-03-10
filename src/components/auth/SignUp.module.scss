@@ -1,17 +1,46 @@
 @import '../../scss/styles.scss';
 
-.wrapper {
+.container {
   @include set-center;
   justify-content: center;
   position: relative;
   width: 600px;
   height: 100vh;
   margin: 0 auto;
-  .container {
-    @include set-center;
+  .wrapper {
     width: 100%;
+    margin-top: 30px;
+    @include set-center;
+    p span {
+      color: $logoColor;
+      font-weight: 500;
+    }
     .form {
       @include set-center;
+      .inputWrapper {
+        @include set-center;
+        width: 300px;
+        input {
+          padding: 0 8px;
+          margin: 5px 0;
+          width: 100%;
+          height: 45px;
+          border: 2px solid #93abbf;
+          border-radius: 7px;
+        }
+      }
+      button {
+        width: 300px;
+        height: 48px;
+        background-color: #768ba6;
+        color: white;
+        margin-top: 30px;
+        font-size: 1rem;
+        border-radius: 5px;
+        &:active {
+          opacity: 0.7;
+        }
+      }
     }
   }
 }

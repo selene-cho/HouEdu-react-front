@@ -1,10 +1,11 @@
 import React from 'react';
+import Carousel from '../components/Carousel';
 
 export default function Home() {
   return (
     <div>
       HOME
-      <p>슬라이드 3개 </p>
+      <Carousel />
       <p>강의목록</p>
       <p>강사 리스트</p>
     </div>

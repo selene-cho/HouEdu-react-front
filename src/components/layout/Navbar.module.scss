@@ -6,6 +6,8 @@
   padding: 0 20px;
   border-bottom: 1px solid $borderColor;
   z-index: 100;
+  position: fixed;
+  background-color: white;
   .container {
     display: flex;
     max-width: $maxWidth;
@@ -18,20 +20,22 @@
       align-items: center;
       font-weight: 500;
       .navLeft {
+        display: flex;
         margin: 0 20px;
         font-size: 16px;
-        span {
+        li {
           margin-right: 20px;
           letter-spacing: 3px;
         }
       }
       .navRight {
-        span {
-          margin: 0 5px;
+        .showLogin {
           .login {
+            margin: 0 5px;
             @include set-navButton;
           }
           .signup {
+            margin: 0 5px;
             @include set-navButton;
             background-color: $buttonColor;
           }

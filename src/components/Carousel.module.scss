@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  > button {
+    &:hover {
+      transition: all 0.3s ease-in-out;
+      color: #fff;
+    }
+  }
+  .leftArrow {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    font-weight: bold;
+    font-size: 30px;
+    background-color: transparent;
+    // color: white;
+    padding: 0.5rem 0.75rem;
+    border: none;
+    cursor: pointer;
+    left: 0;
+  }
+  .rightArrow {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    font-weight: bold;
+    font-size: 30px;
+    background-color: transparent;
+    // color: white;
+    padding: 0.5rem 0.75rem;
+    border: none;
+    cursor: pointer;
+    right: 0;
+  }
+  .carouselList {
+    display: flex;
+    overflow: hidden;
+    .carouselItem {
+      flex: 1 0 100%;
+      transform: translateX();
+      > img {
+        width: 100%;
+        height: fit-content;
+      }
+      &:active {
+      }
+    }
+  }
+}

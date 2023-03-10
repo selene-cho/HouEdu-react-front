@@ -6,9 +6,10 @@
   color: $lightFontColor;
   padding: 20px;
   flex-direction: row;
-  position: absolute;
   bottom: 0;
   width: 100vw;
+  height: 140px;
+  z-index: -1;
   .container {
     margin: {
       left: 10px;

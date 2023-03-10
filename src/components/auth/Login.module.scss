@@ -1,17 +1,92 @@
 @import '../../scss/styles.scss';
 
-.wrapper {
+.container {
   @include set-center;
   justify-content: center;
   position: relative;
-  width: 600px;
+  width: 300px;
   height: 100vh;
   margin: 0 auto;
-  .container {
+  .wrapper {
     width: 100%;
+    margin-top: 30px;
     @include set-center;
+    p span {
+      color: $logoColor;
+      font-weight: 500;
+    }
     .form {
       @include set-center;
+      width: 100%;
+      height: 100%;
+      .inputWrapper {
+        @include set-center;
+        width: 100%;
+        input {
+          padding: 0 8px;
+          margin: 10px 0;
+          width: 100%;
+          height: 45px;
+          border: 2px solid #93abbf;
+          border-radius: 7px;
+        }
+      }
+      button {
+        width: 100%;
+        height: 48px;
+        margin-top: 30px;
+        background-color: #768ba6;
+        color: white;
+        font-size: 1rem;
+        border-radius: 5px;
+        &:active {
+          opacity: 0.7;
+        }
+      }
+    }
+    .divider {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin: 25px 0;
+      div {
+        width: 100%;
+        border-bottom: 1px solid #93abbf;
+      }
+      span {
+        margin: 0 15px;
+      }
+    }
+    .snsLogin {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      > button {
+        border-radius: 100%;
+        padding: 5px;
+        width: 40px;
+        height: 40px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .sns {
+          position: absolute;
+          width: 60%;
+          height: 60%;
+        }
+      }
+      .kakao {
+        color: #32130b;
+        background-color: #ffe312;
+      }
+      .github {
+        color: black;
+        background-color: lighten(black, 95%);
+      }
+      .google {
+        background-color: #fff3f2;
+      }
     }
   }
 }
