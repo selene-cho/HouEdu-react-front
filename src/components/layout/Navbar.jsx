@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { BsCartPlusFill, BsPencilSquare } from 'react-icons/bs';
 import styles from './Navbar.module.scss';
 import Logo from '../common/Logo';
 import UserMenu from '../UserMenu';
