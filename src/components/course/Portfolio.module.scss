@@ -2,39 +2,39 @@
    display: flex;
    align-items: center;
    justify-content: space-around;
-   flex-wrap: wrap;
-   gap: 2rem;
-   height: 25rem;
+   flex-direction: row;
+   gap: 3rem;
    overflow: hidden;
-   margin-top: 2rem;
+   margin: 2rem 0;
 }
 
 .main {
-   max-width: 87.5rem;
    display: flex;
    align-items: center;
    justify-content: center;
    flex-direction: column;
    border-radius: 0.5rem;
+   transform: translateX(180deg);
 }
 
 .item {
+   cursor: pointer;
    border-radius: 0.5rem;
 }
 
 .items {
    width: 100%;
    display: flex;
-   justify-content: space-between;
+   justify-content: space-evenly;
+   gap: 6rem;
    padding: 1rem;
+   text-align: center;
 }
 
 .title {
-   font-size: 1.2rem;
-   text-align: center;
+   font-size: 0.8rem;
 }
 
 .date {
-   font-size: 1.2rem;
-   text-align: center;
+   font-size: 0.8rem;
 }
