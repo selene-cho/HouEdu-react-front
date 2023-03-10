@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import CourseList from './pages/CourseList';
 import Lectures from './pages/Lectures';
 import NewLecture from './pages/NewLecture';
-import Review from './pages/Review';
+import Reviews from './pages/Reviews';
 import Portfolio from './pages/Portfolio';
 import MyCart from './pages/MyCart';
 import NotFound from './pages/NotFound';
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       { path: '/courses', element: <CourseList /> },
       { path: '/courses/new', element: <NewLecture /> },
       { path: '/course/:courseId', element: <Lectures /> },
-      { path: '/reviews', element: <Review /> },
+      { path: '/reviews', element: <Reviews /> },
       { path: '/portfolio', element: <Portfolio /> },
       { path: '/carts', element: <MyCart /> },
     ],

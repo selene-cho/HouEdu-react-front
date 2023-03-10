@@ -1,6 +1,9 @@
 .body {
   padding-top: 70px;
+  max-width: 1400px;
   min-height: calc(100vh - 140px);
-  flex-grow: 1;
   position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
 }
