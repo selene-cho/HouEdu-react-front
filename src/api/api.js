@@ -7,3 +7,4 @@
 //   },
 //   withCredentials: true,
 // });
+// export const baseUrl = 'http://3.35.67.72:8000/api/v1/courses/'
