@@ -1,19 +1,37 @@
 import React from 'react';
-import styles from 'Rating.module.scss';
+import styles from './Rating.module.scss';
 
-function Start({ selected = false }) {
-  const className = `Rating-star ${selected ? 'selected' : ''}`;
-  return <span className={styles.className}>⭐️</span>;
-}
+const RATINGS = [1, 2, 3, 4, 5];
 
-export default function Rating({ value = 0 }) {
+function Star({ selected = false, rating, onSelect, onHover }) {
+  const className = `ratingStar ${selected ? 'selected' : ''}`;
+
+  const handleClick = onSelect ? () => onSelect(rating) : undefined;
+
+  const handleMouseOver = onHover ? () => onHover(rating) : undefined;
+
   return (
-    <div>
-      <Start selected={value >= 1} />
-      <Start selected={value >= 2} />
-      <Start selected={value >= 3} />
-      <Start selected={value >= 4} />
-      <Start selected={value >= 5} />
+    <span
+      className={styles.$({ className })}
+      onClick={handleClick}
+      onMouseOver={handleMouseOver}
+    >
+      ★
+    </span>
+  );
+}
+export default function Rating({ value = 0, onSelect, onHover, onMouseOut }) {
+  return (
+    <div onMouseOut={onMouseOut}>
+      {RATINGS.map((rating) => (
+        <Star
+          key={rating}
+          selected={value >= rating}
+          rating={rating}
+          onSelect={onSelect}
+          onHover={onHover}
+        />
+      ))}
     </div>
   );
 }
