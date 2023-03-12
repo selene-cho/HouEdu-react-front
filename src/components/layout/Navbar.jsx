@@ -36,11 +36,11 @@ export default function Navbar() {
           <ul className={styles.navRight}>
             <li>
               <Link to="/login" className={styles.login}>
-                Log in
+                로그인
               </Link>
             </li>
             <li className={styles.signup}>
-              <Link to="/signup">Sign Up</Link>
+              <Link to="/signup">회원가입</Link>
             </li>
             <li>
               <UserMenu />

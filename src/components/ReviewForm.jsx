@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import RatingInput from './RatingInput';
 import styles from './ReviewForm.module.scss';
 
 export default function ReviewForm() {
@@ -8,12 +9,16 @@ export default function ReviewForm() {
     content: '',
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues((prev) => ({
-      ...prev,
+  const handleChange = (name, value) => {
+    setValues((prevValues) => ({
+      ...prevValues,
       [name]: value,
     }));
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    handleChange(name, value);
   };
 
   const handleSubmit = (e) => {
@@ -23,14 +28,17 @@ export default function ReviewForm() {
 
   return (
     <form className={styles.reviewForm} onSubmit={handleSubmit}>
-      <input name="title" value={values.title} onChange={handleChange} />
-      <input
+      <input name="title" value={values.title} onChange={handleInputChange} />
+      <RatingInput
         name="rating"
-        type="number"
         value={values.rating}
         onChange={handleChange}
       />
-      <textarea name="content" value={values.content} onChange={handleChange} />
+      <textarea
+        name="content"
+        value={values.content}
+        onChange={handleInputChange}
+      />
       <button type="submit">확인</button>
     </form>
   );

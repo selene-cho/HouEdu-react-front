@@ -2,7 +2,7 @@
 
 $lightFontColor: #f7f7f5;
 $logoColor: #0378a6;
-$buttonColor: #dbdee3;
+$buttonColor: #93abbf;
 $borderColor: #e0d3ca;
 $navColor: #033c61;
 $footerColor: #757575;
@@ -22,10 +22,9 @@ $maxWidth: 1400px;
 }
 
 @mixin set-navButton {
-  border: 2px solid $buttonColor;
-  border-radius: 5px;
+  border: 1px solid $buttonColor;
+  border-radius: 20px;
   padding: 8px 13px;
-  color: $navColor;
   text-align: center;
   font-family: $engFont;
 }
