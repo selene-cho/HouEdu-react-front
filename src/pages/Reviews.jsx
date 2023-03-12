@@ -13,8 +13,8 @@ function formatDate(value) {
 function ReviewListItem({ item }) {
   return (
     <div className={styles.reviewListItem}>
-      <h1>{item.title}</h1>
-      <Rating value={item.rating} />
+      <h1>{item.crs.crs_name}</h1>
+      <Rating value={item.star} />
       <p>{formatDate(item.createdAt)}</p>
       <p>{item.content}</p>
     </div>

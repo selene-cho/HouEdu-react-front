@@ -4,8 +4,8 @@ import styles from './ReviewForm.module.scss';
 
 export default function ReviewForm() {
   const [values, setValues] = useState({
-    title: '',
-    rating: 0,
+    crs: '',
+    star: 0,
     content: '',
   });
 
@@ -28,12 +28,12 @@ export default function ReviewForm() {
 
   return (
     <form className={styles.reviewForm} onSubmit={handleSubmit}>
-      <input name="title" value={values.title} onChange={handleInputChange} />
-      <RatingInput
-        name="rating"
-        value={values.rating}
-        onChange={handleChange}
+      <input
+        name="crs"
+        value={values.crs.crs_name}
+        onChange={handleInputChange}
       />
+      <RatingInput name="star" value={values.star} onChange={handleChange} />
       <textarea
         name="content"
         value={values.content}

@@ -12,7 +12,7 @@ function Star({ selected = false, rating, onSelect, onHover }) {
 
   return (
     <span
-      className={className}
+      className={styles.className}
       onClick={handleClick}
       onMouseOver={handleMouseOver}
     >
@@ -20,6 +20,7 @@ function Star({ selected = false, rating, onSelect, onHover }) {
     </span>
   );
 }
+
 export default function Rating({
   className,
   value = 0,
