@@ -1,5 +1,5 @@
-import React from "react";
-import { useRouteError, Link } from "react-router-dom";
+import React from 'react';
+import { useRouteError, Link } from 'react-router-dom';
 
 export default function NotFound() {
   const error = useRouteError();
@@ -11,9 +11,9 @@ export default function NotFound() {
       <p>해당 페이지를 찾지 못했습니다</p>
       <p>주소가 잘못되었거나, 더 이상 제공하지 않는 페이지입니다.</p>
       <p>
-        <i>{error.statusText || error.message}</i>
+        에러 메세지 :<i>{error.statusText || error.message}</i>
       </p>
-      <Link to="/">OZ 홈으로</Link>
+      <Link to="/">메인페이지로</Link>
     </div>
   );
 }
