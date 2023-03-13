@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import data from '../../dummy/data.json';
-import { useNavigate } from 'react-router-dom';
 import styles from './SearchCourse.module.scss';
 
 export default function Search() {

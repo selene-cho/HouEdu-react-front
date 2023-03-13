@@ -6,50 +6,50 @@ import UserMenu from '../UserMenu';
 // import { isLoggedInVar } from 'apollo';
 
 function getLinkStyle({ isActive }) {
-   return {
-      color: isActive ? '#0378a6' : '',
-   };
+  return {
+    color: isActive ? '#0378a6' : '',
+  };
 }
 export default function Navbar() {
-   return (
-      <header className={styles.header}>
-         <div className={styles.container}>
-            <Logo />
-            <nav className={styles.nav}>
-               <ul className={styles.navLeft}>
-                  <li>
-                     <NavLink style={getLinkStyle} to='/course'>
-                        강의
-                     </NavLink>
-                  </li>
-                  <li>
-                     <NavLink style={getLinkStyle} to='/reviews'>
-                        수강평
-                     </NavLink>
-                  </li>
-                  <li>
-                     <NavLink style={getLinkStyle} to='/portfolio'>
-                        수강생 작품
-                     </NavLink>
-                  </li>
-               </ul>
-               <ul className={styles.navRight}>
-                  <li>
-                     <Link to='/login' className={styles.login}>
-                        Log in
-                     </Link>
-                  </li>
-                  <li className={styles.signup}>
-                     <Link to='/signup'>Sign Up</Link>
-                  </li>
-                  <li>
-                     <UserMenu />
-                  </li>
-               </ul>
-            </nav>
-         </div>
-      </header>
-   );
+  return (
+    <header className={styles.header}>
+      <div className={styles.container}>
+        <Logo />
+        <nav className={styles.nav}>
+          <ul className={styles.navLeft}>
+            <li>
+              <NavLink style={getLinkStyle} to="/courses">
+                강의
+              </NavLink>
+            </li>
+            <li>
+              <NavLink style={getLinkStyle} to="/reviews">
+                수강평
+              </NavLink>
+            </li>
+            <li>
+              <NavLink style={getLinkStyle} to="/portfolio">
+                수강생 작품
+              </NavLink>
+            </li>
+          </ul>
+          <ul className={styles.navRight}>
+            <li>
+              <Link to="/login" className={styles.login}>
+                Log in
+              </Link>
+            </li>
+            <li className={styles.signup}>
+              <Link to="/signup">Sign Up</Link>
+            </li>
+            <li>
+              <UserMenu />
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  );
 }
 
 // export default function Navbar() {
