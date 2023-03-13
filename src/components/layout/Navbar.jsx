@@ -6,11 +6,12 @@ import UserMenu from '../UserMenu';
 // import { isLoggedInVar } from 'apollo';
 
 function getLinkStyle({ isActive }) {
-  return {
-    color: isActive ? '#0378a6' : '',
-  };
+   return {
+      color: isActive ? '#0378a6' : '',
+   };
 }
 export default function Navbar() {
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
