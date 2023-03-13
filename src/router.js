@@ -23,7 +23,7 @@ const router = createBrowserRouter([
       errorElement: <NotFound />, // 사용자 지정 Error Page
       children: [
          { index: true, path: '/', element: <Home /> },
-         { path: '/course', element: <CourseList /> },
+         { path: '/courses', element: <CourseList /> },
          { path: '/courses/:coursesId', element: <CourseDetail /> },
          { path: '/reviews', element: <Reviews /> },
          { path: '/portfolio', element: <Portfolio /> },
