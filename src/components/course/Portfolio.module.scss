@@ -1,46 +1,54 @@
 .container {
    display: flex;
-   align-items: center;
    justify-content: center;
-   flex-direction: row;
-   margin: 2rem 0;
-   overflow: hidden;
-   position: relative;
+   align-items: center;
+   flex-wrap: nowrap;
+   gap: 6rem;
+   padding: 2rem;
    width: 100%;
-}
+   height: 25rem;
+   border-radius: 1rem;
 
-.main {
-   width: 20rem;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   flex-direction: column;
-   border-radius: 0.5rem;
-   animation: scroll-animation 30s linear infinite forwards;
-   margin: 0 2rem;
-}
+   .main {
+      position: relative;
+      height: 100%;
+      border-radius: 1rem;
+      animation: scroll-animation 40s linear infinite;
 
-.item {
-   cursor: pointer;
-   border-radius: 0.5rem;
-}
+      .images {
+         width: 18rem;
+         height: 100%;
+         border-radius: 1rem;
+         cursor: pointer;
+         object-fit: cover;
+      }
 
-.items {
-   width: 20rem;
-   height: 100%;
-   display: flex;
-   justify-content: space-evenly;
-   margin: 0 5.5rem;
-   padding: 1rem;
-   text-align: center;
-}
+      .items {
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         border-radius: 0 0 1rem 1rem;
+         width: 100%;
+         background-color: rgba(42, 43, 45, 0.534);
+         color: #fff;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         padding: 1.5rem;
 
-.title {
-   font-size: 0.8rem;
-}
+         .title {
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin: 0;
+         }
 
-.date {
-   font-size: 0.8rem;
+         .date {
+            font-size: 0.8rem;
+            margin: 0;
+            font-style: italic;
+         }
+      }
+   }
 }
 
 @keyframes scroll-animation {
@@ -48,6 +56,6 @@
       transform: translate3d(0, 0, 0);
    }
    100% {
-      transform: translate3d(calc(-20rem * 7), 0, 0);
+      transform: translate3d(calc(-20rem * 15), 0, 0);
    }
 }
