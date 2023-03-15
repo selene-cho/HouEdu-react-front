@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { BsFillEyeSlashFill, BsGithub } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
+import { FaKey, FaEnvelope } from 'react-icons/fa';
 import { RiKakaoTalkFill } from 'react-icons/ri';
 import styles from './Login.module.scss';
 import Logo from '../common/Logo';
@@ -51,22 +52,29 @@ export default function Login() {
         </p>
         <form className={styles.form} onSubmit={onSubmit}>
           <div className={styles.inputWrapper}>
-            <input
-              type="email"
-              name="email"
-              onChange={onChange}
-              value={email}
-              placeholder="이메일"
-              required
-            />
-            <input
-              type="password"
-              name="password"
-              onChange={onChange}
-              value={password}
-              placeholder="비밀번호"
-              required
-            />
+            <div className={styles.inputBox}>
+              <FaEnvelope className={styles.icon} />
+              <input
+                type="email"
+                name="email"
+                onChange={onChange}
+                value={email}
+                placeholder="이메일"
+                required
+              />
+            </div>
+
+            <div className={styles.inputBox}>
+              <FaKey className={styles.icon} />
+              <input
+                type="password"
+                name="password"
+                onChange={onChange}
+                value={password}
+                placeholder="비밀번호"
+                required
+              />
+            </div>
           </div>
           <div>
             <a href="#">아이디</a>

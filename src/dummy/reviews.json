@@ -5,7 +5,7 @@
       "updatedAt": 1625065200000,
       "id": 1,
       "crs": {
-        "crs_name": "인테리어 강의",
+        "crs_name": "인테리어 디자인",
         "tcr": {
           "tcr_name": "선생님1",
           "tcr_info": "선생님1 인포"
@@ -13,14 +13,14 @@
       },
       "user": "유저1",
       "content": "강의 후기1",
-      "star": 2
+      "star": 3
     },
     {
       "createdAt": 1616511600000,
       "updatedAt": 1616511600000,
       "id": 2,
       "crs": {
-        "crs_name": "인테리어 강의",
+        "crs_name": "CAD 과정 ",
         "tcr": {
           "tcr_name": "선생님2",
           "tcr_info": "선생님2 인포"
@@ -28,14 +28,14 @@
       },
       "user": "유저2",
       "content": "강의 후기2",
-      "star": 3
+      "star": 2
     },
     {
       "createdAt": 1600268400000,
       "updatedAt": 1600268400000,
       "id": 3,
       "crs": {
-        "crs_name": "인테리어 강의",
+        "crs_name": "3Ds Max",
         "tcr": {
           "tcr_name": "선생님3",
           "tcr_info": "선생님3 인포"
@@ -43,13 +43,14 @@
       },
       "user": "유저3",
       "content": "강의 후기3",
-      "star": 2
+      "star": 1
     },
     {
       "createdAt": 1598367600000,
       "updatedAt": 1598367600000,
+      "id": 4,
       "crs": {
-        "crs_name": "인테리어 강의",
+        "crs_name": "스케치업",
         "tcr": {
           "tcr_name": "선생님4",
           "tcr_info": "선생님4 인포"
@@ -64,7 +65,7 @@
       "updatedAt": 1596553200000,
       "id": 5,
       "crs": {
-        "crs_name": "인테리어 강의",
+        "crs_name": "BIM(Revit)",
         "tcr": {
           "tcr_name": "선생님5",
           "tcr_info": "선생님5 인포"
@@ -79,7 +80,7 @@
       "updatedAt": 1595948400000,
       "id": 6,
       "crs": {
-        "crs_name": "인테리어 강의",
+        "crs_name": "건축/실내디자인 스케치",
         "tcr": {
           "tcr_name": "선생님6",
           "tcr_info": "선생님6 인포"
@@ -87,14 +88,14 @@
       },
       "user": "유저6",
       "content": "강의 후기6",
-      "star": 3
+      "star": 5
     },
     {
       "createdAt": 1594738800000,
       "updatedAt": 1594738800000,
       "id": 7,
       "crs": {
-        "crs_name": "인테리어 강의",
+        "crs_name": "건축/실내디자인 전문가",
         "tcr": {
           "tcr_name": "선생님7",
           "tcr_info": "선생님7 인포"
@@ -102,14 +103,14 @@
       },
       "user": "유저7",
       "content": "강의 후기7",
-      "star": 3
+      "star": 5
     },
     {
       "createdAt": 1594134000000,
       "updatedAt": 1594134000000,
       "id": 8,
       "crs": {
-        "crs_name": "인테리어 강의",
+        "crs_name": "실내 건축 시공실무",
         "tcr": {
           "tcr_name": "선생님8",
           "tcr_info": "선생님8 인포"
@@ -117,14 +118,14 @@
       },
       "user": "유저8",
       "content": "강의 후기8",
-      "star": 3
+      "star": 5
     },
     {
       "createdAt": 1594134000000,
       "updatedAt": 1594134000000,
       "id": 9,
       "crs": {
-        "crs_name": "인테리어 강의",
+        "crs_name": "실내 건축 시공이론",
         "tcr": {
           "tcr_name": "선생님9",
           "tcr_info": "선생님9 인포"
@@ -132,14 +133,14 @@
       },
       "user": "유저9",
       "content": "강의 후기9",
-      "star": 2
+      "star": 5
     },
     {
       "createdAt": 1592924400000,
       "updatedAt": 1592924400000,
       "id": 10,
       "crs": {
-        "crs_name": "인테리어 강의",
+        "crs_name": "인테리어 디자인",
         "tcr": {
           "tcr_name": "선생님10",
           "tcr_info": "선생님10 인포"
@@ -147,7 +148,7 @@
       },
       "user": "유저10",
       "content": "강의 후기10",
-      "star": 2
+      "star": 4
     }
   ],
   "paging": {
