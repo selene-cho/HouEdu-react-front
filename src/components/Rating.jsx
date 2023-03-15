@@ -1,25 +1,54 @@
-import React from 'react';
+import { useState } from 'react';
+import { FaStar } from 'react-icons/fa';
+
 import styles from './Rating.module.scss';
 
 const RATINGS = [1, 2, 3, 4, 5];
 
-function Star({ selected = false, rating, onSelect, onHover }) {
-  const { className } = `ratingStar ${selected ? 'selected' : ''}`;
+function Star({ selected = false, star, onSelect, onHover }) {
+  // const { className } = `${selected ? 'selected' : ''}`;
 
-  const handleClick = onSelect ? () => onSelect(rating) : undefined;
+  const handleClick = onSelect ? () => onSelect(star) : undefined;
+  // onSelect 값 있을 때 onSelect(rating) 로 지정, 없을 때는 undefined
 
-  const handleMouseOver = onHover ? () => onHover(rating) : undefined;
+  const handleMouseOver = onHover ? () => onHover(star) : undefined;
 
   return (
-    <span
-      className={styles.className}
+    // <span
+    //   className={`${styles.ratingStar} ${className}`}
+    //   onClick={handleClick}
+    //   onMouseOver={handleMouseOver}
+    // >
+    //   ★
+    // </span>
+    <FaStar
+      className={styles.star}
+      color={selected ? 'rgb(255, 208, 0)' : ' lightgray'}
       onClick={handleClick}
       onMouseOver={handleMouseOver}
-    >
-      ★
-    </span>
+    />
   );
 }
+
+// function Star({ selected = false, onSelect, onHover }) {
+//   return <FaStar color={selected ? 'rgb(255, 208, 0)' : ' lightgray'} />;
+// }
+
+// const createArray = (length) => [...Array(length)];
+
+// export default function StarRating({totalStars = 5}) {
+//   const [selectedStar] = useState(0);
+//   return (
+//     <>
+//       {createArray(totalStars).map((n,i)=>(
+//         <Star key={i} selected={selectedStar > i} />
+//       ))}
+//       <p>
+//         {selectedStar}/ {totalStars}
+//       </p>
+//     </>
+//   );
+// }
 
 export default function Rating({
   className,
@@ -29,12 +58,15 @@ export default function Rating({
   onMouseOut,
 }) {
   return (
-    <div className={styles.className} onMouseOut={onMouseOut}>
-      {RATINGS.map((rating) => (
+    <div
+      className={`${styles.ratingStar} ${className}`}
+      onMouseOut={onMouseOut}
+    >
+      {RATINGS.map((star) => (
         <Star
-          key={rating}
-          selected={value >= rating}
-          rating={rating}
+          key={star}
+          selected={value >= star}
+          rating={star}
           onSelect={onSelect}
           onHover={onHover}
         />

@@ -13,35 +13,37 @@ import Login from './components/auth/Login';
 import KakaoLogin from './components/auth/KakaoLogin';
 import SignUp from './components/auth/SignUp';
 import CourseDetail from './pages/CourseDetail';
+import ReviewForm from './components/ReviewForm';
 
 // const isLoggedIn = useReactiveVar(isLoggedInVar);
 
 const router = createBrowserRouter([
-   {
-      path: '/',
-      element: <App />,
-      errorElement: <NotFound />, // 사용자 지정 Error Page
-      children: [
-         { index: true, path: '/', element: <Home /> },
-         { path: '/courses', element: <CourseList /> },
-         { path: '/courses/:coursesId', element: <CourseDetail /> },
-         { path: '/reviews', element: <Reviews /> },
-         { path: '/portfolio', element: <Portfolio /> },
-         { path: '/carts', element: <MyCart /> },
-      ],
-   },
-   {
-      path: '/signup',
-      element: <SignUp />,
-   },
-   {
-      path: '/login',
-      element: <Login />,
-   },
-   {
-      path: '/kakaologin',
-      element: <KakaoLogin />,
-   },
+  {
+    path: '/',
+    element: <App />,
+    errorElement: <NotFound />, // 사용자 지정 Error Page
+    children: [
+      { index: true, path: '/', element: <Home /> },
+      { path: '/courses', element: <CourseList /> },
+      { path: '/course/:coursesId', element: <CourseDetail /> },
+      { path: '/reviews', element: <Reviews /> },
+      { path: '/review/form', element: <ReviewForm /> },
+      { path: '/portfolio', element: <Portfolio /> },
+      { path: '/carts', element: <MyCart /> },
+    ],
+  },
+  {
+    path: '/signup',
+    element: <SignUp />,
+  },
+  {
+    path: '/login',
+    element: <Login />,
+  },
+  {
+    path: '/kakaologin',
+    element: <KakaoLogin />,
+  },
 ]);
 
 export default router;
