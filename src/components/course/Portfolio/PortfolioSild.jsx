@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Portfolio.module.scss';
-import dummy from '../../dummy/portfolio.json';
+import dummy from '../../../dummy/portfolio.json';
 
 const slides = [...dummy.items, dummy.items[0]];
 
+// 전체목록에서 슬라이드로 보여지는 컴포넌트
 export default function Portfolios() {
    const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
    useEffect(() => {
       const intervalId = setInterval(() => {
          setCurrentSlideIndex(index => index === (index + 1) % slides.length);
-      }, 5000);
+      }, 1000);
       return () => clearInterval(intervalId);
    }, []);
 

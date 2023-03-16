@@ -2,18 +2,18 @@
    display: flex;
    align-items: center;
    justify-content: center;
+   flex-direction: column;
    width: 100%;
-   height: 15rem;
-   // margin: auto;
 
-   form {
+   .form {
       display: flex;
       align-items: center;
       justify-content: center;
       width: 100%;
+      height: 15rem;
 
-      input[type='text'] {
-         border: 2px solid #d5d5d5;
+      .input[type='text'] {
+         border: 2px solid #93abbf;
          border-radius: 2rem;
          padding: 0 1.5rem;
          width: 25rem;
@@ -31,13 +31,13 @@
          }
       }
 
-      button[type='button'] {
-         border: none;
+      .search {
+         border: 1px solid;
          border-radius: 2rem;
-         background-color: #4c4c4c;
+         background-color: #93abbf;
          color: #fff;
          padding: 0.8rem 1.5rem;
-         margin-left: 1rem;
+         margin-left: 2rem;
          font-size: 1rem;
          cursor: pointer;
          transition: all 0.2s ease-in-out;
@@ -45,7 +45,18 @@
          &:hover {
             background-color: #fff;
             color: #4c4c4c;
-            border: 2px solid #4c4c4c;
+            border: 1px solid #93abbf;
+            margin-left: 2rem;
+         }
+         .popup {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 1.25rem;
+            width: 18.75rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
          }
       }
    }
