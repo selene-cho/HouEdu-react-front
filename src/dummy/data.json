@@ -1,80 +1,82 @@
-[
-   {
-      "id": 4,
-      "tcr": {
-         "tcr_name": "항인재"
+{
+   "lecture": [
+      {
+         "id": 4,
+         "tcr": {
+            "tcr_name": "항인재"
+         },
+         "reviews": [],
+         "crs_name": "인테리어 디자인",
+         "thumbnail": "https://projectlmsfiles.s3.ap-northeast-2.amazonaws.com/images/thumbnail/course__list/Course+thumbnail-1.png",
+         "price": 120000
       },
-      "reviews": [],
-      "crs_name": "인테리어 디자인",
-      "thumbnail": "https://projectlmsfiles.s3.ap-northeast-2.amazonaws.com/images/thumbnail/course__list/Course+thumbnail-1.png",
-      "prcie": 120000
-   },
-   {
-      "id": 11,
-      "tcr": {
-         "tcr_name": "항인재"
+      {
+         "id": 11,
+         "tcr": {
+            "tcr_name": "항인재"
+         },
+         "reviews": [
+            {
+               "star": 5
+            }
+         ],
+         "crs_name": "CAD",
+         "thumbnail": "https://projectlmsfiles.s3.ap-northeast-2.amazonaws.com/images/thumbnail/course__list/Course+thumbnail-2.png",
+         "price": 70000
       },
-      "reviews": [
-         {
-            "star": 5
-         }
-      ],
-      "crs_name": "CAD",
-      "thumbnail": "https://projectlmsfiles.s3.ap-northeast-2.amazonaws.com/images/thumbnail/course__list/Course+thumbnail-2.png",
-      "prcie": 70000
-   },
-   {
-      "id": 12,
-      "tcr": {
-         "tcr_name": "항인재"
+      {
+         "id": 12,
+         "tcr": {
+            "tcr_name": "항인재"
+         },
+         "reviews": [],
+         "crs_name": "3Ds Max",
+         "thumbnail": "https://projectlmsfiles.s3.ap-northeast-2.amazonaws.com/images/thumbnail/course__list/Course+thumbnail-3.png",
+         "price": 100000
       },
-      "reviews": [],
-      "crs_name": "3Ds Max",
-      "thumbnail": "https://projectlmsfiles.s3.ap-northeast-2.amazonaws.com/images/thumbnail/course__list/Course+thumbnail-3.png",
-      "prcie": 100000
-   },
-   {
-      "id": 13,
-      "tcr": {
-         "tcr_name": "이인서"
+      {
+         "id": 13,
+         "tcr": {
+            "tcr_name": "이인서"
+         },
+         "reviews": [],
+         "crs_name": "스케치업",
+         "thumbnail": "https://projectlmsfiles.s3.ap-northeast-2.amazonaws.com/images/thumbnail/course__list/Course+thumbnail-4.png",
+         "price": 50000
       },
-      "reviews": [],
-      "crs_name": "스케치업",
-      "thumbnail": "https://projectlmsfiles.s3.ap-northeast-2.amazonaws.com/images/thumbnail/course__list/Course+thumbnail-4.png",
-      "prcie": 50000
-   },
-   {
-      "id": 14,
-      "tcr": {
-         "tcr_name": "이인서"
+      {
+         "id": 14,
+         "tcr": {
+            "tcr_name": "이인서"
+         },
+         "reviews": [],
+         "crs_name": "BIM(Revit)",
+         "thumbnail": "https://projectlmsfiles.s3.ap-northeast-2.amazonaws.com/images/thumbnail/course__list/Course+thumbnail-5.png",
+         "price": 90000
       },
-      "reviews": [],
-      "crs_name": "BIM(Revit)",
-      "thumbnail": "https://projectlmsfiles.s3.ap-northeast-2.amazonaws.com/images/thumbnail/course__list/Course+thumbnail-5.png",
-      "prcie": 90000
-   },
-   {
-      "id": 15,
-      "tcr": {
-         "tcr_name": "이한수"
+      {
+         "id": 15,
+         "tcr": {
+            "tcr_name": "이한수"
+         },
+         "reviews": [
+            {
+               "star": 4
+            }
+         ],
+         "crs_name": "건축/실내디자인 스케치",
+         "thumbnail": "https://projectlmsfiles.s3.ap-northeast-2.amazonaws.com/images/thumbnail/course__list/Course+thumbnail-6.png",
+         "price": 0
       },
-      "reviews": [
-         {
-            "star": 4
-         }
-      ],
-      "crs_name": "건축/실내디자인 스케치",
-      "thumbnail": "https://projectlmsfiles.s3.ap-northeast-2.amazonaws.com/images/thumbnail/course__list/Course+thumbnail-6.png",
-      "prcie": 0
-   },
-   {
-      "id": 16,
-      "tcr": {
-         "tcr_name": "이한수"
-      },
-      "reviews": [],
-      "crs_name": "건축/실내디자인 전문가",
-      "thumbnail": "https://projectlmsfiles.s3.ap-northeast-2.amazonaws.com/images/thumbnail/course__list/Course+thumbnail-7.png",
-      "prcie": 100000
-   }
-]
+      {
+         "id": 16,
+         "tcr": {
+            "tcr_name": "이한수"
+         },
+         "reviews": [],
+         "crs_name": "건축/실내디자인 전문가",
+         "thumbnail": "https://projectlmsfiles.s3.ap-northeast-2.amazonaws.com/images/thumbnail/course__list/Course+thumbnail-7.png",
+         "price": 100000
+      }
+   ]
+}

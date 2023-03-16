@@ -1,20 +1,12 @@
 import React, { useEffect } from 'react';
 import styles from './CourseDetail.module.scss';
-import { useParams } from 'react-router-dom';
+import CoursesDetail from '../components/course/Details/CoursesDetail';
 
 export default function CourseDetail() {
-   const params = useParams();
-   console.log(params);
-   useEffect(() => {
-      console.log('detail', params.coursesId);
-   }, [params]);
-
    return (
       <>
          <section className={styles.container}>
-            {/* <header>
-               <img src='/image/Coursethumbnail-1.png' />
-            </header>
+            <CoursesDetail />
             <aside>
                <div>price box</div>
             </aside>
@@ -22,7 +14,7 @@ export default function CourseDetail() {
                <div>info</div>
                <div>videoPlayer</div>
                <div>review</div>
-            </main> */}
+            </main>
          </section>
       </>
    );

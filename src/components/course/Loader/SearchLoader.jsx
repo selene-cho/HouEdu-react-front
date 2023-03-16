@@ -11,9 +11,6 @@ export default function Search() {
                <button type='button' className={styles.search}>
                   검색
                </button>
-               <button className={styles.reset} type='button'>
-                  초기화
-               </button>
             </form>
          </div>
       </>
