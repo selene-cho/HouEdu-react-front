@@ -1,0 +1,44 @@
+{
+  "teachers": [
+    {
+      "id": 1,
+      "tch": {
+        "tch_name": "teacher1",
+        "tch_info": "강사정보1",
+        "tch_img": "https://projectlmsfiles.s3.ap-northeast-2.amazonaws.com/images/teacher/teacher6.jpg"
+      }
+    },
+    {
+      "id": 2,
+      "tch": {
+        "tch_name": "teacher2",
+        "tch_info": "강사정보2",
+        "tch_img": "https://projectlmsfiles.s3.ap-northeast-2.amazonaws.com/images/teacher/teacher2.jpg"
+      }
+    },
+    {
+      "id": 3,
+      "tch": {
+        "tch_name": "teacher3",
+        "tch_info": "강사정보3",
+        "tch_img": "https://projectlmsfiles.s3.ap-northeast-2.amazonaws.com/images/teacher/teacher3.jpg"
+      }
+    },
+    {
+      "id": 4,
+      "tch": {
+        "tch_name": "teacher4",
+        "tch_info": "강사정보4",
+        "tch_img": "https://projectlmsfiles.s3.ap-northeast-2.amazonaws.com/images/teacher/teacher4.jpg"
+      }
+    },
+    {
+      "id": 5,
+      "tch": {
+        "tch_name": "teacher5",
+        "tch_info": "강사정보5",
+        "tch_img": "https://projectlmsfiles.s3.ap-northeast-2.amazonaws.com/images/teacher/teacher5.jpg"
+      }
+    }
+  ]
+}
