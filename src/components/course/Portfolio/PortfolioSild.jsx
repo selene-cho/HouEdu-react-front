@@ -1,31 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Portfolio.module.scss';
 import dummy from '../../../dummy/portfolio.json';
 
-const slides = [...dummy.items, dummy.items[0]];
+const slides = dummy.items;
 
 // 전체목록에서 슬라이드로 보여지는 컴포넌트
 export default function Portfolios() {
-   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-
-   useEffect(() => {
-      const intervalId = setInterval(() => {
-         setCurrentSlideIndex(index => index === (index + 1) % slides.length);
-      }, 1000);
-      return () => clearInterval(intervalId);
-   }, []);
-
    return (
       <section className={styles.container}>
          {slides.map((slide, index) => (
-            <div
-               className={styles.main}
-               key={index}
-               style={{
-                  transform: `translate3d:(${currentSlideIndex === index ? '0' : '-20rem'}, 0, 0)`,
-               }}
-            >
+            <div className={styles.main} key={index}>
                <Link to='/portfolio'>
                   <img className={styles.images} src={slide.url} alt={`Slide ${index}`} />
                   <div className={styles.items}>

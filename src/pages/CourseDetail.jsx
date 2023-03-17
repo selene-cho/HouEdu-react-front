@@ -1,21 +1,17 @@
 import React, { useEffect } from 'react';
 import styles from './CourseDetail.module.scss';
-import CoursesDetail from '../components/course/Details/CoursesDetail';
+import DetailBanner from '../components/course/Details/DetailBanner';
+import DetailInfo from '../components/course/Details/DetailInfo';
+import DetailCurriculum from '../components/course/Details/DetailCurriculum';
 
 export default function CourseDetail() {
    return (
       <>
-         <section className={styles.container}>
-            <CoursesDetail />
-            <aside>
-               <div>price box</div>
-            </aside>
-            <main>
-               <div>info</div>
-               <div>videoPlayer</div>
-               <div>review</div>
-            </main>
-         </section>
+         <div className={styles.container}>
+            <DetailBanner />
+            <DetailInfo />
+            <DetailCurriculum />
+         </div>
       </>
    );
 }
