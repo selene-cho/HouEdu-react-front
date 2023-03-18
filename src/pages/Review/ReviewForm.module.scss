@@ -1,9 +1,7 @@
-@import '../scss/styles.scss';
+@import '../../scss/styles.scss';
 
 .container {
   @include set-center;
-  width: 100%;
-  height: 100%;
   justify-content: center;
   position: relative;
   margin: 30px;

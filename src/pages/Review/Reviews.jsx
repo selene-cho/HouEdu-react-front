@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import ReviewForm from '../components/ReviewForm';
-import Rating from '../components/Rating';
+import Rating from './Rating';
 import styles from './Reviews.module.scss';
-import mock from '../dummy/reviews.json';
+import mock from '../../dummy/reviews.json';
+import ReviewForm from './ReviewForm';
 
+/* Review 1개 */
 function Review({ item }) {
   return (
     <div className={styles.review}>
@@ -23,16 +22,20 @@ function Review({ item }) {
   );
 }
 
+/* Review 전체 */
 export default function Reviews() {
   return (
-    <ul className={styles.container}>
-      {mock.reviews.map((item) => {
-        return (
-          <li key={item.id}>
-            <Review item={item} />
-          </li>
-        );
-      })}
-    </ul>
+    <div className={styles.container}>
+      <ReviewForm />
+      <ul className={styles.reviews}>
+        {mock.reviews.map((item) => {
+          return (
+            <li key={item.id}>
+              <Review item={item} />
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 }

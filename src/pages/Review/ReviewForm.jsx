@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import RatingInput from './RatingInput';
-import mock from '../dummy/reviews.json';
+import mock from '../../dummy/reviews.json';
 
 import styles from './ReviewForm.module.scss';
 
 export default function ReviewForm() {
   const [values, setValues] = useState({
-    crs: '',
+    course: '',
     star: 0,
     content: '',
   });
@@ -34,13 +34,16 @@ export default function ReviewForm() {
       <form className={styles.reviewForm} onSubmit={handleSubmit}>
         <div className={styles.courses}>
           <p>강의 명: </p>
-          <select className={styles.courseName}>
+          <select
+            className={styles.courseName}
+            name="course"
+            value={values.course}
+            onChange={handleInputChange}
+            required
+          >
+            <option selected="selected">강의명 선택</option>
             {mock.reviews.map((item) => {
-              return (
-                <option key={item.id} value={item.crs.crs_name}>
-                  {item.crs.crs_name}
-                </option>
-              );
+              return <option key={item.id}>{item.crs.crs_name}</option>;
             })}
           </select>
         </div>

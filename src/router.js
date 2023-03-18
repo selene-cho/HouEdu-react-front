@@ -3,9 +3,9 @@ import { createBrowserRouter } from 'react-router-dom';
 // import { isLoggedInVar } from './apollo';
 
 import App from './App';
-import Home from './pages/Home';
+import Home from './pages/Main/Home';
 import CourseList from './pages/CourseList';
-import Reviews from './pages/Reviews';
+import Reviews from './pages/Review/Reviews';
 import Portfolio from './pages/Portfolio';
 import MyCart from './pages/MyCart';
 import NotFound from './pages/NotFound';
@@ -13,7 +13,7 @@ import Login from './components/auth/Login';
 import KakaoLogin from './components/auth/KakaoLogin';
 import SignUp from './components/auth/SignUp';
 import CourseDetail from './pages/CourseDetail';
-import ReviewForm from './components/ReviewForm';
+import ReviewForm from './pages/Review/ReviewForm';
 
 // const isLoggedIn = useReactiveVar(isLoggedInVar);
 
