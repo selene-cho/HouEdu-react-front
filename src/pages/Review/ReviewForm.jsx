@@ -3,8 +3,13 @@ import RatingInput from './RatingInput';
 import mock from '../../dummy/reviews.json';
 
 import styles from './ReviewForm.module.scss';
+import { useQuery } from '@tanstack/react-query';
+import { getReviews } from '../../api/api';
 
 export default function ReviewForm() {
+  const { data } = useQuery(['reviews'], getReviews);
+  console.log('data', data);
+
   const [values, setValues] = useState({
     course: '',
     star: 0,
@@ -33,17 +38,32 @@ export default function ReviewForm() {
       <h1>수강 후기</h1>
       <form className={styles.reviewForm} onSubmit={handleSubmit}>
         <div className={styles.courses}>
-          <p>강의 명: </p>
           <select
             className={styles.courseName}
             name="course"
             value={values.course}
             onChange={handleInputChange}
+            key={values.course}
             required
           >
-            <option selected="selected">강의명 선택</option>
-            {mock.reviews.map((item) => {
-              return <option key={item.id}>{item.crs.crs_name}</option>;
+            <option
+              readOnly={true}
+              defaultValue={values.course}
+              className={styles.option}
+            >
+              강의명 선택
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⇣
+            </option>
+            {data?.map((review) => {
+              return (
+                <option
+                  key={review.id}
+                  value={review.crs.crs_name}
+                  className={styles.option}
+                >
+                  {review.crs.crs_name}
+                </option>
+              );
             })}
           </select>
         </div>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { BsCartPlusFill, BsPencilSquare } from 'react-icons/bs';
 import styles from './UserMenu.module.scss';
 
-export default function UserMenu() {
+export default function UserMenu({ user }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleButtonClick = useCallback((e) => {
@@ -26,7 +26,7 @@ export default function UserMenu() {
     <>
       <div className={styles.userMenu}>
         <button className={styles.button} onClick={handleButtonClick}>
-          NickName
+          {user?.nickname}
         </button>
         {isOpen && (
           <ul className={styles.popup}>
@@ -37,7 +37,6 @@ export default function UserMenu() {
             </Link>
             <li>내강의실</li>
             <li>마이페이지</li>
-            <li>로그아웃</li>
           </ul>
         )}
       </div>

@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styles from './Navbar.module.scss';
 import Logo from '../common/Logo';
 import UserMenu from '../UserMenu';
-// import { isLoggedInVar } from 'apollo';
+import useUser from '../hooks/useUser';
+import { useQueryClient } from '@tanstack/react-query';
+import { logOut } from '../../api/api';
 
 function getLinkStyle({ isActive }) {
-   return {
-      color: isActive ? '#0378a6' : '',
-   };
+  return {
+    color: isActive ? '#0378a6' : '',
+  };
 }
 export default function Navbar() {
+  const { userLoading, isLoggedIn, user } = useUser();
+  const queryClient = useQueryClient();
+  const onLogOut = async () => {
+    await logOut();
+    queryClient.refetchQueries(['myinfo']);
+  };
 
   return (
     <header className={styles.header}>
@@ -35,17 +42,29 @@ export default function Navbar() {
             </li>
           </ul>
           <ul className={styles.navRight}>
-            <li>
-              <Link to="/login" className={styles.login}>
-                로그인
-              </Link>
-            </li>
-            <li className={styles.signup}>
-              <Link to="/signup">회원가입</Link>
-            </li>
-            <li>
-              <UserMenu />
-            </li>
+            {!userLoading ? (
+              !isLoggedIn ? (
+                <>
+                  <li>
+                    <Link to="/login" className={styles.login}>
+                      로그인
+                    </Link>
+                  </li>
+                  <li className={styles.signup}>
+                    <Link to="/signup">회원가입</Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <UserMenu user={user} />
+                  </li>
+                  <li className={styles.logout} onClick={onLogOut}>
+                    로그아웃
+                  </li>
+                </>
+              )
+            ) : null}
           </ul>
         </nav>
       </div>

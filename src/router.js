@@ -23,13 +23,13 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <NotFound />, // 사용자 지정 Error Page
     children: [
-      { index: true, path: '/', element: <Home /> },
-      { path: '/courses', element: <CourseList /> },
-      { path: '/course/:coursesId', element: <CourseDetail /> },
-      { path: '/reviews', element: <Reviews /> },
-      { path: '/review/form', element: <ReviewForm /> },
-      { path: '/portfolio', element: <Portfolio /> },
-      { path: '/carts', element: <MyCart /> },
+      { index: true, path: '', element: <Home /> },
+      { path: 'courses', element: <CourseList /> },
+      { path: 'course/:coursesId', element: <CourseDetail /> },
+      { path: 'reviews', element: <Reviews /> },
+      { path: 'review/form', element: <ReviewForm /> },
+      { path: 'portfolio', element: <Portfolio /> },
+      { path: 'carts', element: <MyCart /> },
     ],
   },
   {

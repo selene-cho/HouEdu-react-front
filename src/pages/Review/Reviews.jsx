@@ -1,10 +1,13 @@
 import Rating from './Rating';
 import styles from './Reviews.module.scss';
-import mock from '../../dummy/reviews.json';
+// import mock from '../../dummy/reviews.json';
 import ReviewForm from './ReviewForm';
+import { useQuery } from '@tanstack/react-query';
+import { getReviews } from '../../api/api';
 
 /* Review 1개 */
 function Review({ item }) {
+  console.log('item', item);
   return (
     <div className={styles.review}>
       <div className={styles.title}>
@@ -24,14 +27,17 @@ function Review({ item }) {
 
 /* Review 전체 */
 export default function Reviews() {
+  const { data } = useQuery(['reviews'], getReviews);
+  console.log('data', data);
+
   return (
     <div className={styles.container}>
       <ReviewForm />
       <ul className={styles.reviews}>
-        {mock.reviews.map((item) => {
+        {data?.map((review) => {
           return (
-            <li key={item.id}>
-              <Review item={item} />
+            <li key={review.id}>
+              <Review item={review} />
             </li>
           );
         })}
