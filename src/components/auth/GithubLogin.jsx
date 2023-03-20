@@ -1,15 +1,22 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useQueryClient } from '@tanstack/react-query';
 import { githubLogIn } from '../../api/api';
 import styles from './GithubLogin.module.scss';
 
 export default function GithubLogin() {
   const { search } = useLocation();
+  const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const confirmLogin = async () => {
     const params = new URLSearchParams(search);
     const code = params.get('code');
     if (code) {
-      await githubLogIn(code);
+      const status = await githubLogIn(code);
+      if (status === 200) {
+        queryClient.refetchQueries(['myinfo']);
+        navigate('/');
+      }
     }
   };
   useEffect(() => {

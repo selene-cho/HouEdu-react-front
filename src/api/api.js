@@ -27,7 +27,7 @@ export const logOut = () =>
 export const githubLogIn = (code) =>
   instance
     .post(
-      `/users/github`,
+      `users/github`,
       { code },
       {
         headers: {
