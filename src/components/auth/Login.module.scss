@@ -12,7 +12,7 @@
     margin-top: 30px;
     @include set-center;
     p span {
-      color: $logoColor;
+      color: $navy1;
       font-weight: 500;
     }
     .form {
@@ -30,14 +30,14 @@
             margin-left: -30px;
             margin-right: 10px;
             font-size: 1.25rem;
-            color: #afb0b4;
+            color: $gray2;
           }
           input {
             padding: 0 8px;
             margin: 10px 0;
             width: 100%;
             height: 45px;
-            border: 2px solid #93abbf;
+            border: 2px solid $blue1;
             border-radius: 7px;
           }
         }
@@ -46,7 +46,7 @@
         width: 90%;
         height: 48px;
         margin-top: 30px;
-        background-color: #768ba6;
+        background-color: $blue2;
         color: white;
         font-size: 1rem;
         border-radius: 5px;
@@ -62,7 +62,7 @@
       margin: 25px 0;
       div {
         width: 100%;
-        border-bottom: 1px solid #93abbf;
+        border-bottom: 1px solid $blue1;
       }
       span {
         margin: 0 15px;
