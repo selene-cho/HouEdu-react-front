@@ -1,4 +1,4 @@
-import mock from '../dummy/teachers.json';
+import mock from '../../dummy/teachers.json';
 import styles from './Teachers.module.scss';
 
 export default function Teachers() {

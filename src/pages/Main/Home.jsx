@@ -1,5 +1,5 @@
 import React from 'react';
-import Carousel from '../components/Carousel';
+import Carousel from './Carousel';
 import Teachers from './Teachers';
 
 export default function Home() {
