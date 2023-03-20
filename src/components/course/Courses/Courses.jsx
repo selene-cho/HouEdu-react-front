@@ -15,7 +15,7 @@ export default function Courses() {
    return (
       <div className={styles.container}>
          {lecture.slice(0, showCount).map(courses => (
-            <Link to={`/courses/${courses.id}`} key={courses.id}>
+            <Link to={`/course/${courses.id}`} key={courses.id}>
                <div className={styles.courses}>
                   <img className={styles.crs__image} src={courses.thumbnail} alt={`courses ${courses.id}`} />
                   <p>{courses.tcr.tcr_name}</p>

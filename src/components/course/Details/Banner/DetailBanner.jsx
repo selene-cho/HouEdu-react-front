@@ -1,17 +1,15 @@
 import React from 'react';
 import styles from './DetailBanner.module.scss';
 import { Link, useParams } from 'react-router-dom';
-import mock from '../../../dummy/reviews.json';
-import Rating from '../../Rating';
 
-const CoursesReview = ({ item, value }) => {
-   console.log(item.star);
-   return (
-      <>
-         <Rating value={value && item.star} />
-      </>
-   );
-};
+// const CoursesReview = ({ item, value }) => {
+//    console.log(item.star);
+//    return (
+//       <>
+//          <Rating value={value && item.star} />
+//       </>
+//    );
+// };
 
 export default function DetailBanner() {
    const { coursesId } = useParams();

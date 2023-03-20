@@ -12,8 +12,8 @@ export default function ReviewForm() {
   });
 
   const handleChange = (name, value) => {
-    setValues((prevValues) => ({
-      ...prevValues,
+    setValues((preValues) => ({
+      ...preValues,
       [name]: value,
     }));
   };
@@ -37,7 +37,9 @@ export default function ReviewForm() {
           <select className={styles.courseName}>
             {mock.reviews.map((item) => {
               return (
-                <option value={item.crs.crs_name}>{item.crs.crs_name}</option>
+                <option key={item.id} value={item.crs.crs_name}>
+                  {item.crs.crs_name}
+                </option>
               );
             })}
           </select>
@@ -47,19 +49,20 @@ export default function ReviewForm() {
           name="star"
           value={values.star}
           onChange={handleChange}
+          required
         />
         <textarea
           className={styles.content}
           name="content"
           value={values.content}
           onChange={handleInputChange}
-          cols="60"
+          cols="50"
           rows="8"
-          placeholder="솔직한 평가 부탁드립니다 ♥︎"
+          minLength={20}
+          placeholder="솔직한 수강후기 부탁드립니다♥︎ (최소 20자 이상)"
+          required
         />
-        <button className={styles.button} type="submit">
-          확인
-        </button>
+        <button type="submit">확인</button>
       </form>
     </div>
   );

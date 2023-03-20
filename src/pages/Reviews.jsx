@@ -5,31 +5,31 @@ import Rating from '../components/Rating';
 import styles from './Reviews.module.scss';
 import mock from '../dummy/reviews.json';
 
-// function formatDate(value) {
-//   const date = new Date(value);
-//   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
-// }
-
-function ReviewListItem({ item }) {
+function Review({ item }) {
   return (
-    <div className={styles.reviewListItem}>
-      <h1>{item.crs.crs_name}</h1>
-      <Rating value={item.star} />
-      <p>{item.created_at}</p>
-      <p>{item.updated_at}</p>
-      <p>{item.user.nickname}</p>
-      <p>{item.content}</p>
+    <div className={styles.review}>
+      <div className={styles.title}>
+        <h1>{item.crs.crs_name}</h1>
+        <Rating value={item.star} />
+      </div>
+      <div className={styles.time}>
+        <p>{item.created_at}</p>
+        <p>{item.updated_at}</p>
+      </div>
+
+      <p className={styles.nickname}>{item.user.nickname}</p>
+      <p className={styles.content}>{item.content}</p>
     </div>
   );
 }
 
 export default function Reviews() {
   return (
-    <ul>
+    <ul className={styles.container}>
       {mock.reviews.map((item) => {
         return (
           <li key={item.id}>
-            <ReviewListItem item={item} />
+            <Review item={item} />
           </li>
         );
       })}

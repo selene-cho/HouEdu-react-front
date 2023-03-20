@@ -1,12 +1,13 @@
 import React from 'react';
 import Carousel from '../components/Carousel';
+import Teachers from './Teachers';
 
 export default function Home() {
   return (
     <div>
       <Carousel />
       <p>강의목록</p>
-      <p>강사 리스트</p>
+      <Teachers />
     </div>
   );
 }

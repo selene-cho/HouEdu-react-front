@@ -14,14 +14,18 @@
     }
   }
   .reviewForm {
+    margin: 20px 0;
+    padding: 30px 0;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #eeeae1;
     @include set-center;
-    padding: 10px 0;
     &:not(:last-child) {
       margin-bottom: 20px;
     }
     .courses {
       display: flex;
-      margin-top: 20px;
+      margin: 20px 0;
       > p {
         margin-right: 10px;
         font-size: 1.125rem;
@@ -32,8 +36,10 @@
     }
     .content {
       padding: 20px;
-      margin-bottom: 20px;
+      margin: 20px 50px;
       font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #f4ebe4;
     }
     > button {
       border-radius: 5px;
