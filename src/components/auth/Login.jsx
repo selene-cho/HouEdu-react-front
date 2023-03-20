@@ -90,13 +90,22 @@ export default function Login() {
         </div>
         <div className={styles.snsLogin}>
           <button className={styles.google}>
-            <FcGoogle className={styles.sns} />
+            <Link to="" className={styles.link}>
+              <FcGoogle className={styles.sns} />
+            </Link>
           </button>
           <button className={styles.github}>
-            <BsGithub className={styles.sns} />
+            <Link
+              to="https://github.com/login/oauth/authorize?client_id=b40759dbc613bb53f81d&scope=read:user,user:email"
+              className={styles.link}
+            >
+              <BsGithub className={styles.sns} />
+            </Link>
           </button>
           <button className={styles.kakao} onClick={handleLogin}>
-            <RiKakaoTalkFill className={styles.sns} />
+            <Link to="" className={styles.link}>
+              <RiKakaoTalkFill className={styles.sns} />
+            </Link>
           </button>
         </div>
       </div>

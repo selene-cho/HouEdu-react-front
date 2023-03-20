@@ -11,6 +11,7 @@ import MyCart from './pages/MyCart';
 import NotFound from './pages/NotFound';
 import Login from './components/auth/Login';
 import KakaoLogin from './components/auth/KakaoLogin';
+import GithubLogin from './components/auth/GithubLogin';
 import SignUp from './components/auth/SignUp';
 import CourseDetail from './pages/CourseDetail';
 import ReviewForm from './pages/Review/ReviewForm';
@@ -41,8 +42,17 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: '/kakaologin',
-    element: <KakaoLogin />,
+    path: '/social',
+    children: [
+      {
+        path: 'github',
+        element: <GithubLogin />,
+      },
+      {
+        path: 'kakao',
+        element: <KakaoLogin />,
+      },
+    ],
   },
 ]);
 
