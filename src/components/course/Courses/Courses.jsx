@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Courses.module.scss';
 import { Link } from 'react-router-dom';
 import data from '../../../dummy/data.json';

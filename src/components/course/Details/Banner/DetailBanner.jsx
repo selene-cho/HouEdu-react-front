@@ -1,24 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './DetailBanner.module.scss';
 import { Link, useParams } from 'react-router-dom';
-
-// const CoursesReview = ({ item, value }) => {
-//    console.log(item.star);
-//    return (
-//       <>
-//          <Rating value={value && item.star} />
-//       </>
-//    );
-// };
 
 export default function DetailBanner() {
    const { coursesId } = useParams();
    console.log('id', coursesId);
 
-   // const getRating = () => {
-   //    const ratingInfo = mock.find(item => item.id === coursesId);
-   //    return ratingInfo ? ratingInfo.rating : null;
-   // };
+   useEffect(() => {
+      window.scroll(0, 0);
+   }, [coursesId]);
 
    return (
       <section className={styles.container}>

@@ -1,16 +1,21 @@
 .curriculum {
    display: flex;
-   align-items: flex-start;
-   justify-content: flex-start;
+   align-items: center;
+   justify-content: center;
    flex-direction: column;
    text-align: center;
-   width: 100%;
-   max-width: 75rem;
-   margin: 0 auto;
+   width: 60rem;
+   margin-bottom: 3rem;
+   padding: 0 2rem;
 
    .tab_menu {
       flex: 1;
       width: 100%;
+
+      .title {
+         font-size: 2rem;
+         padding: 1rem;
+      }
 
       .ul {
          display: flex;
@@ -21,15 +26,19 @@
          margin: 0;
 
          .li {
-            padding: 10px;
-            margin: 0;
+            padding: 1.3rem;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 400;
             width: 100%;
+            margin: 1rem;
             border: 1px solid #000;
+            background-color: #0378a6;
+            color: #fff;
+            border-radius: 1rem;
 
             &.active {
-               background-color: #fff;
                color: #000;
                border-top: 1px solid #000;
                border-left: 1px solid #000;
@@ -38,29 +47,8 @@
             }
 
             &:hover {
-               background-color: #f5f5f5;
+               background-color: #93abbf;
             }
-         }
-      }
-   }
-
-   .content {
-      width: 100%;
-      flex: 1;
-      h3 {
-         margin-top: 40px;
-      }
-
-      p {
-         line-height: 1.5;
-      }
-
-      .tab_content {
-         display: none;
-         margin-top: 20px;
-
-         &.active {
-            display: block;
          }
       }
    }
