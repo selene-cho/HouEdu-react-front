@@ -4,7 +4,7 @@
   width: 100%;
   height: 70px;
   padding: 0 20px;
-  border-bottom: 1px solid $borderColor;
+  border-bottom: 1px solid $beige2;
   z-index: 100;
   position: fixed;
   background-color: white;
@@ -36,7 +36,7 @@
         }
         .signup {
           border: none;
-          background-color: $logoColor;
+          background-color: $navy1;
           color: white;
         }
         .logout {

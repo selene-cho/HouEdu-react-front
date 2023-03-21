@@ -27,7 +27,7 @@ export const logOut = () =>
 export const githubLogIn = (code) =>
   instance
     .post(
-      `users/github`,
+      `users/github/`, // django의 users/github으로 코드 확인 요청
       { code },
       {
         headers: {

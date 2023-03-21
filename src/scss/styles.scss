@@ -1,21 +1,30 @@
 /* color */
+$navy1: #0378a6;
+$navy2: #033c61;
+$blue1: #93abbf;
+$blue2: #768ba6;
+$gray1: #dbdee3;
+$gray2: #afb0b4;
+$ivory1: #f7f7f5;
+$ivory2: #eeeae1;
+$beige1: #f4ebe4;
+$beige2: #e0d3ca;
 
-$lightFontColor: #f7f7f5;
-$logoColor: #0378a6;
-$buttonColor: #93abbf;
-$borderColor: #e0d3ca;
-$navColor: #033c61;
-$footerColor: #757575;
-$bgColor: #f7f7f5;
 /* font */
 $korFont: 'Noto Sans KR';
 $engFont: 'Montserrat', sans-serif;
+$HeadFont: 'IBM Plex Sans';
 
 /* size */
 $maxWidth: 1400px;
 
-/* mixin */
+$sm: 0.75rem; // //12px, 날짜, weight:200
+$reg: 1rem; // 16px, 내용
+$lg: 1.125rem; //18px
+$xl: 1.5rem; // 24px, 강조, weight: 400
+$xxl: 2rem; // 32px, 제목, weight:600
 
+/* mixin */
 @mixin set-center {
   display: flex;
   flex-direction: column;
@@ -23,7 +32,7 @@ $maxWidth: 1400px;
 }
 
 @mixin set-navButton {
-  border: 1px solid $buttonColor;
+  border: 1px solid $blue1;
   border-radius: 20px;
   padding: 8px 13px;
   text-align: center;
