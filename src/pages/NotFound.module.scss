@@ -1,0 +1,35 @@
+@import '../scss/styles.scss';
+
+.container {
+  @include set-center;
+  width: 100vw;
+  height: 100vh;
+  padding: 3.125rem;
+  background-color: $beige1;
+  > h1 {
+    color: #e94560;
+    margin-bottom: 1.25rem;
+    font: {
+      size: $xxl;
+      weight: 800;
+      family: $engFont;
+    }
+  }
+  > .content {
+    @include set-center;
+    color: #533483;
+    margin: 20px 0;
+    font: {
+      size: $lg;
+    }
+  }
+  .error {
+    margin-bottom: 1.25rem;
+    font: {
+      size: $reg;
+      weight: 30;
+    }
+  }
+  .goToMain {
+  }
+}

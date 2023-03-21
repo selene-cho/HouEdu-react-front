@@ -1,0 +1,35 @@
+.snsLogin {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  > button {
+    border-radius: 100%;
+    // padding: 5px;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .link {
+      position: absolute;
+      width: 60%;
+      height: 60%;
+      > .sns {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .kakao {
+    color: #32130b;
+    background-color: #ffe312;
+  }
+  .github {
+    color: black;
+    background-color: lighten(black, 95%);
+  }
+  .google {
+    background-color: #fff3f2;
+  }
+}
