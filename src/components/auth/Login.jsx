@@ -72,7 +72,7 @@ export default function Login() {
                   required: '비밀번호를 입력해주세요.',
                   // minLength: {
                   //   value: 8,
-                  //   message: '8글자 이상 입력해주세요.',
+                  //   message: '8자리 이상 입력해주세요.',
                   // },
                 })}
                 placeholder="비밀번호"

@@ -1,4 +1,3 @@
-// import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaKey, FaEnvelope, FaUser } from 'react-icons/fa';
 import { RiBearSmileFill, RiCheckboxCircleFill } from 'react-icons/ri';
@@ -6,38 +5,40 @@ import styles from './SignUp.module.scss';
 import Logo from '../common/Logo';
 import { useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { signUp } from '../../api/api';
 
 export default function SignUp() {
   const {
     register,
     formState: { errors },
     handleSubmit,
-    setError,
+    reset,
   } = useForm({ mode: 'onBlur' });
 
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
-  // const mutation = useMutation(usernameLogIn, {
-  //   onMutate: () => {
-  //     console.log('mutation starting');
-  //   },
-  //   onSuccess: () => {
-  //     console.log('mutation is successful, API CALL SUCCESS');
-  //     queryClient.refetchQueries(['myinfo']);
-  //     navigate('/');
-  //   },
-  //   onError: () => {
-  //     console.log('mutation has an error, API CALL ERROR');
-  //   },
-  // });
+  const mutation = useMutation(signUp, {
+    onMutate: () => {
+      console.log('mutation starting');
+    },
+    onSuccess: () => {
+      console.log('mutation is successful, API CALL SUCCESS');
+      queryClient.refetchQueries(['myinfo']);
+      navigate('/');
+    },
+    onError: () => {
+      console.log('mutation has an error, API CALL ERROR');
+    },
+  });
 
-  // const onSubmit = ({ username, email, password }) => {
-  //   mutation.mutate({ username, email, password });
-  //   console.log('username', username);
-  //   console.log('email', email);
-  //   console.log('password', password);
-  // };
+  const onSubmit = ({ username, email, password, nickname }) => {
+    mutation.mutate({ username, email, password, nickname });
+    console.log('username', username);
+    console.log('email', email);
+    console.log('password', password);
+    console.log('nickname', nickname);
+  };
 
   return (
     <div className={styles.container}>
@@ -49,7 +50,7 @@ export default function SignUp() {
             <span>로그인하기</span>
           </Link>
         </p>
-        <form className={styles.form} onSubmit={handleSubmit()}>
+        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.inputWrapper}>
             <div className={styles.inputBox}>
               <FaUser className={styles.icon} />
@@ -62,6 +63,9 @@ export default function SignUp() {
                 required
               />
             </div>
+            {mutation.isError ? (
+              <div className={styles.error}>이미 존재하는 아이디입니다.</div>
+            ) : null}
             <div className={styles.inputBox}>
               <FaEnvelope className={styles.icon} />
               <input
@@ -77,6 +81,9 @@ export default function SignUp() {
                 required
               />
             </div>
+            {mutation.isError ? (
+              <div className={styles.error}>이미 존재하는 이메일입니다.</div>
+            ) : null}
             <div className={styles.inputBox}>
               <FaKey className={styles.icon} />
               <input
@@ -111,12 +118,15 @@ export default function SignUp() {
               <RiBearSmileFill className={styles.icon} />
               <input
                 type="text"
-                name="nickname"
+                {...register('nickname', {
+                  required: '닉네임을 입력해주세요.',
+                })}
                 placeholder="닉네임"
                 required
               />
             </div>
           </div>
+          {mutation.isError}
           <button type="submit">회원가입</button>
         </form>
       </div>

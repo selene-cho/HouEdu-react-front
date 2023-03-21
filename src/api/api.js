@@ -62,3 +62,16 @@ export const usernameLogIn = ({ username, password }) =>
       }
     )
     .then((res) => res.data);
+
+export const signUp = ({ username, password, email, nickname }) =>
+  instance
+    .post(
+      `users/signup/`,
+      { username, password, email, nickname },
+      {
+        headers: {
+          'X-CSRFToken': Cookie.get('csrftoken') || '',
+        },
+      }
+    )
+    .then((res) => res.data);
