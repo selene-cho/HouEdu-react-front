@@ -1,30 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './DetailCurriculum.module.scss';
-import TabMenuHeader from './TabMenuHeader';
-import TabMenuContent from './TabMenuContent';
-import { tabs } from './tabs';
+import dummy from './tabs.json';
 
 export default function DetailCurriculum() {
-   const [activeTab, setActiveTab] = useState(0);
-
-   const handleTabClick = tabIndex => {
-      setActiveTab(tabIndex);
-      console.log(tabIndex);
-   };
-
-   const activeTabContent = Array.isArray(tabs[activeTab].content) ? tabs[activeTab].content : [{ content: tabs[activeTab].content }];
-   console.log(activeTabContent);
-
+   console.log(dummy.map(item => console.log(item.title)));
    return (
-      <div className={styles.curriculum}>
+      <section id='curriculum' className={styles.curriculum}>
          <div className={styles.tab_menu}>
-            <TabMenuHeader tabs={tabs} activeTab={activeTab} onTabClick={handleTabClick} />
-            <div className={styles.content}>
-               <TabMenuContent tabs={tabs} activeTab={activeTab} />
-            </div>
+            <div className={styles.title}>커리큘럼</div>
+            <ul className={styles.ul}>
+               {dummy.map(items => (
+                  <li className={styles.li}>{items.title}</li>
+               ))}
+            </ul>
          </div>
-
-         {/* 탭안 콘텐츠 */}
-      </div>
+      </section>
    );
 }

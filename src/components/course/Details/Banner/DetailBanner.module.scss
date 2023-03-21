@@ -3,15 +3,15 @@
    display: flex;
    align-items: center;
    justify-content: center;
-   position: relative;
    width: 100%;
-   height: 100%;
-   padding: 3rem;
+   height: 25rem;
+   padding: 192px;
 
    .banner {
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       align-items: center;
+      gap: 5rem;
       width: 100%;
       height: 25rem;
 
@@ -19,28 +19,29 @@
          display: flex;
          flex-direction: column;
          justify-content: center;
+         border-left: 1px solid rgba(204, 204, 204, 0.278);
          color: #fff;
-         width: 40rem;
-         height: 100%;
+         width: 30rem;
 
          h3 {
-            font-size: 1.5rem;
-            padding: 1rem;
+            font-size: 1.3rem;
+            padding: 0 0.5rem;
          }
          p {
             font-size: 1rem;
-            padding: 1rem;
+            padding: 0.5rem;
          }
          a {
             width: 15rem;
-            padding: 0 2rem;
-            padding-top: 4rem;
+            padding: 0 0.5rem;
+            padding-top: 2rem;
          }
 
          .banner_btn {
             background-color: #93abbf;
             width: 100%;
             height: 3rem;
+            font-size: 1.2rem;
             cursor: pointer;
             border-radius: 0.5rem;
             &:hover {
@@ -50,11 +51,10 @@
       }
 
       .banner__image {
-         position: relative;
          display: flex;
          align-items: center;
          justify-content: center;
-         width: 40rem;
+         width: 30rem;
          height: 100%;
 
          .banner__img {
