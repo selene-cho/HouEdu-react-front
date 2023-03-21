@@ -15,6 +15,7 @@ import GithubLogin from './components/auth/GithubLogin';
 import SignUp from './components/auth/SignUp';
 import CourseDetail from './pages/CourseDetail';
 import ReviewForm from './pages/Review/ReviewForm';
+import UploadReview from './pages/Review/UploadReview';
 
 // const isLoggedIn = useReactiveVar(isLoggedInVar);
 
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
       { path: 'course/:coursesId', element: <CourseDetail /> },
       { path: 'reviews', element: <Reviews /> },
       { path: 'review/form', element: <ReviewForm /> },
+      { path: 'review/upload', element: <UploadReview /> },
       { path: 'portfolio', element: <Portfolio /> },
       { path: 'carts', element: <MyCart /> },
     ],

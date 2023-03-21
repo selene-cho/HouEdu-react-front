@@ -18,11 +18,11 @@ $HeadFont: 'IBM Plex Sans';
 /* size */
 $maxWidth: 1400px;
 
-$sm: 0.75rem; // //12px, 날짜, weight:200
+$sm: 0.75rem; // //12px, 날짜, weight:300
 $reg: 1rem; // 16px, 내용
 $lg: 1.125rem; //18px
-$xl: 1.5rem; // 24px, 강조, weight: 400
-$xxl: 2rem; // 32px, 제목, weight:600
+$xl: 1.5rem; // 24px, 강조, weight: 500
+$xxl: 2rem; // 32px, 제목, weight: 700
 
 /* mixin */
 @mixin set-center {

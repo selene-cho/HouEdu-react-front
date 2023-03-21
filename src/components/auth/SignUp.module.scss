@@ -40,6 +40,17 @@
           }
         }
       }
+      .error {
+        color: red;
+        font: {
+          size: 0.6875rem;
+          weight: 300;
+        }
+        margin-bottom: 0.625rem;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
       button {
         width: 90%;
         height: 48px;
