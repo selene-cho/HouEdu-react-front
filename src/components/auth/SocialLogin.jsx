@@ -7,7 +7,7 @@ import styles from './SocialLogin.module.scss';
 
 export default function SocialLogin() {
   const kakaoParams = {
-    client_id: '3502eaf7979d5335957aa3709799a122',
+    client_id: 'ec72411cc6b187772440b8c3801b3090',
     redirect_uri: 'http://127.0.0.1:3000/social/kakao',
     response_type: 'code',
   };

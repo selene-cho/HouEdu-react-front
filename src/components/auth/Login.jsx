@@ -47,7 +47,7 @@ export default function Login() {
       <Logo />
       <div className={styles.wrapper}>
         <p>
-          아직 회원이 아니신가요?&nbsp;&nbsp;
+          이메일로&nbsp;
           <Link to="/signup">
             <span>회원가입하기</span>
           </Link>
@@ -71,10 +71,6 @@ export default function Login() {
                 type="password"
                 {...register('password', {
                   required: '비밀번호를 입력해주세요.',
-                  // minLength: {
-                  //   value: 8,
-                  //   message: '8자리 이상 입력해주세요.',
-                  // },
                 })}
                 placeholder="비밀번호"
                 required

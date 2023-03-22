@@ -4,7 +4,7 @@
   @include set-center;
   width: 100vw;
   height: 100vh;
-  padding: 3.125rem;
+  padding: 6.25rem;
   background-color: $beige1;
   > h1 {
     color: #e94560;
@@ -24,12 +24,25 @@
     }
   }
   .error {
-    margin-bottom: 1.25rem;
+    width: 80%;
+    text-align: center;
+    margin: 1.25rem 0;
     font: {
       size: $reg;
-      weight: 30;
+      weight: 200;
     }
   }
   .goToMain {
+    width: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1.25rem 0;
+    color: $navy2;
+    text-align: center;
+    font: {
+      size: $reg;
+      weight: 500;
+    }
   }
 }

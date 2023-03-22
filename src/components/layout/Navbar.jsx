@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import styles from './Navbar.module.scss';
 import Logo from '../common/Logo';
-import UserMenu from '../UserMenu';
+import UserMenu from './UserMenu';
 import useUser from '../hooks/useUser';
 import { useQueryClient } from '@tanstack/react-query';
 import { logOut } from '../../api/api';

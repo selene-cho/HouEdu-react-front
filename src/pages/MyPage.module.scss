@@ -1,0 +1,7 @@
+.container {
+  display: flex;
+  justify-content: flex-end;
+  .body {
+    width: calc(100% - 190px);
+  }
+}

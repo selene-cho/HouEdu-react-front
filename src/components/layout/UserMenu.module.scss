@@ -1,0 +1,26 @@
+@import '../../scss/styles.scss';
+
+.userMenu {
+  position: relative;
+}
+ul.popup {
+  background-color: white;
+  position: absolute;
+  top: calc(100% + 20px);
+  right: -10px;
+  box-shadow: 0.5px 0.5px 3px 0.5px rgba(32, 61, 120, 0.369);
+  border-radius: 15px 0 10px 10px;
+  overflow: hidden;
+  width: 100px;
+  li {
+    padding: 15px 10px;
+    border-bottom: 1px solid $beige2;
+    &:hover {
+      background-color: $beige1;
+    }
+    > .carts {
+      font-size: 17px;
+      padding: 0;
+    }
+  }
+}

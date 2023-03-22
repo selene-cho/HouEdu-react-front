@@ -2,6 +2,7 @@ import React, { useCallback, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BsCartPlusFill, BsPencilSquare } from 'react-icons/bs';
 import styles from './UserMenu.module.scss';
+import { FaCartPlus } from 'react-icons/fa';
 
 export default function UserMenu({ user }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,11 +33,13 @@ export default function UserMenu({ user }) {
           <ul className={styles.popup}>
             <Link to="/carts">
               <li>
-                <BsCartPlusFill />
+                <FaCartPlus className={styles.carts} />
               </li>
             </Link>
             <li>내강의실</li>
-            <li>마이페이지</li>
+            <Link to="/mypage">
+              <li>마이페이지</li>
+            </Link>
           </ul>
         )}
       </div>

@@ -1,0 +1,22 @@
+@import '../../scss/styles.scss';
+
+.container {
+  width: 190px;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  padding: 20px;
+  .categoryNav {
+    .link {
+      font-weight: 400;
+      > li {
+        padding: 20px 0;
+        text-align: center;
+        border-bottom: 1px solid $beige2;
+        &:hover {
+          background-color: $ivory1;
+        }
+      }
+    }
+  }
+}

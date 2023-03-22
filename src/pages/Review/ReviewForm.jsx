@@ -44,16 +44,17 @@ export default function ReviewForm() {
             value={values.course}
             onChange={handleInputChange}
             key={values.course}
+            placeholder="강의명 선택"
             required
           >
-            <option
+            {/* <option
               readOnly={true}
               defaultValue={values.course}
               className={styles.option}
             >
               강의명 선택
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⇣
-            </option>
+            </option> */}
             {data?.map((review) => {
               return (
                 <option

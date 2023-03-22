@@ -32,7 +32,7 @@ export default function Reviews() {
 
   return (
     <div className={styles.container}>
-      <ReviewForm />
+      <div>내가 작성한 글</div>
       <ul className={styles.reviews}>
         {data?.map((review) => {
           return (

@@ -16,6 +16,7 @@ import SignUp from './components/auth/SignUp';
 import CourseDetail from './pages/CourseDetail';
 import ReviewForm from './pages/Review/ReviewForm';
 import UploadReview from './pages/Review/UploadReview';
+import MyPage from './pages/MyPage';
 
 // const isLoggedIn = useReactiveVar(isLoggedInVar);
 
@@ -30,8 +31,15 @@ const router = createBrowserRouter([
       { path: 'course/:coursesId', element: <CourseDetail /> },
       { path: 'reviews', element: <Reviews /> },
       { path: 'review/form', element: <ReviewForm /> },
-      { path: 'review/upload', element: <UploadReview /> },
       { path: 'portfolio', element: <Portfolio /> },
+      {
+        path: 'mypage',
+        element: <MyPage />,
+        children: [
+          // { path: 'edit/profile', element: <EditProfile /> },
+          { path: 'review/upload', element: <UploadReview /> },
+        ],
+      },
       { path: 'carts', element: <MyCart /> },
     ],
   },
