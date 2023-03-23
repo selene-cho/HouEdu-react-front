@@ -83,3 +83,11 @@ export const signUp = ({ username, password, email, nickname }) =>
 const courseData = axios.create({
    baseURL: 'http://127.0.0.1:8000/api/v1/courses/',
 });
+
+export const fetchCourse = async () => {
+   const response = await courseData.get();
+   console.log(response);
+   return response.data;
+};
+
+export const getCourse = () => courseData.get(`courses/`).then(res => res.data);

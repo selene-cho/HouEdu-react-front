@@ -3,9 +3,9 @@
    align-items: center;
    justify-content: center;
    flex-direction: column;
-   width: 100%;
-   height: 100%;
+
    padding: 2rem;
+   text-align: center;
 
    .filterButtons {
       display: flex;
@@ -21,7 +21,7 @@
       button {
          border: 1px solid;
          color: #fff;
-         padding: 1rem;
+         padding: 0.5rem 1.5rem;
          background-color: #93abbf;
          border-radius: 0.5rem;
 
@@ -35,15 +35,17 @@
 
    .course {
       display: flex;
-      align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 4rem;
-      padding: 3rem 0;
+      width: 100%;
+      gap: 3rem;
+      margin: 0 2rem;
+      padding-top: 4rem;
 
       .courses {
+         position: relative;
+         width: 20%;
          display: flex;
-         justify-content: space-between;
          flex-direction: column;
          border-radius: 1rem;
          text-align: center;
@@ -52,11 +54,15 @@
          border: 1px solid transparent;
 
          &:hover {
-            border: 1px solid #93abbf37;
+            border: 1px solid hsla(207, 26%, 66%, 0.216);
          }
 
          .crs__image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
+            height: 200px;
             border-radius: 1rem 1rem 0 0;
             transition: 0.3s ease-in-out;
             position: relative;
@@ -64,39 +70,54 @@
 
          div {
             width: 100%;
+            height: 50px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
+            justify-content: center;
+            &:hover {
+               text-decoration: underline;
+            }
+         }
+
+         span {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.3rem;
+            border-radius: 0.5rem;
+            background-color: yellowgreen;
          }
 
          p {
-            width: 33%;
+            width: 100%;
             padding: 1rem;
-            font-size: 0.8rem;
-            &:last-child {
-               text-align: center;
-            }
+            text-align: center;
+            font-size: 12px;
          }
       }
+   }
+   .showMore {
+      margin-top: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 6rem;
+      height: 3rem;
+      text-align: center;
+      background-color: #93abbf;
+      border: 1px solid;
+      border-radius: 0.5rem;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      color: #fff;
+      font-size: 1rem;
+      padding: 1, 5rem;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
 
-      .showMore {
-         background-color: #93abbf;
-         border: 1px solid;
-         border-radius: 0.5rem;
-         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-         color: #fff;
-         font-size: 1rem;
-         padding: 0.8rem 1.5rem;
-         text-align: center;
-         cursor: pointer;
-         transition: all 0.2s ease-in-out;
-
-         &:hover {
-            background-color: #fff;
-            color: #4c4c4c;
-            border: 1px solid #93abbf;
-         }
+      &:hover {
+         background-color: #fff;
+         color: #4c4c4c;
+         border: 1px solid #93abbf;
       }
    }
 }

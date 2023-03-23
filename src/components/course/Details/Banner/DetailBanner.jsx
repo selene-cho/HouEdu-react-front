@@ -1,20 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './DetailBanner.module.scss';
 import { Link, useParams } from 'react-router-dom';
+import { getCourse } from '../../../../api/api';
 
 export default function DetailBanner() {
    const { coursesId } = useParams();
-   console.log('id', coursesId);
+   const [course, setCourse] = useState(null);
 
    useEffect(() => {
       window.scroll(0, 0);
+      getCourse(coursesId).then(data => setCourse(data));
    }, [coursesId]);
 
    return (
       <section className={styles.container}>
          <div className={styles.banner}>
             <div className={styles.banner__info}>
-               <h3>장인이 알려주는 인테리어와 디자인의 모든 것!</h3>
+               <h3>{course?.title}</h3>
                <p>장인의 비법을 전수합니다. 소제목</p>
                <p>장인의 실력을 배워 현업에 나가 인테리어의 스킬 업!, 그리고 디자인까지 습득하여 만능의 인테리어인이 되어보아요! 강의소개</p>
                <Link to='/lecture'>

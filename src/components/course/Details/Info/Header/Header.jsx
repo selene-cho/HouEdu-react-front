@@ -19,7 +19,7 @@ export default function Header() {
    }, []);
 
    useEffect(() => {
-      if (scrollPosition > 478) {
+      if (scrollPosition > 400) {
          setIsFixed(true);
       } else {
          setIsFixed(false);
