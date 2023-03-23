@@ -32,12 +32,12 @@ export default function Navbar() {
             </li>
             <li>
               <NavLink style={getLinkStyle} to="/reviews">
-                수강평
+                리뷰
               </NavLink>
             </li>
             <li>
               <NavLink style={getLinkStyle} to="/portfolio">
-                수강생 작품
+                포트폴리오
               </NavLink>
             </li>
           </ul>

@@ -15,8 +15,9 @@ import GithubLogin from './components/auth/GithubLogin';
 import SignUp from './components/auth/SignUp';
 import CourseDetail from './pages/CourseDetail';
 import ReviewForm from './pages/Review/ReviewForm';
-import UploadReview from './pages/Review/UploadReview';
+import MyReview from './pages/Review/MyReview';
 import MyPage from './pages/MyPage';
+import ReviewNotFound from './pages/Review/ReviewNotFound';
 
 // const isLoggedIn = useReactiveVar(isLoggedInVar);
 
@@ -37,7 +38,8 @@ const router = createBrowserRouter([
         element: <MyPage />,
         children: [
           // { path: 'edit/profile', element: <EditProfile /> },
-          { path: 'review/upload', element: <UploadReview /> },
+          { path: 'review', element: <MyReview /> },
+          { path: 'review/notfound', element: <ReviewNotFound /> },
         ],
       },
       { path: 'carts', element: <MyCart /> },

@@ -34,13 +34,11 @@ function Review({ item, onDelete }) {
 /* Review 전체 */
 export default function Reviews() {
   const { data } = useQuery(['reviews'], getReviews);
-  console.log('data', data);
 
   const [items, setItems] = useState(data);
-  console.log('items', items);
 
   const [order, setOrder] = useState('created_at');
-  const sortedReviews = data.sort((a, b) => b[order] - a[order]);
+  const sortedReviews = items.sort((a, b) => b[order] - a[order]);
 
   const handleNewestClick = () => setOrder('created_at');
   const handleBestClick = () => setOrder('star');

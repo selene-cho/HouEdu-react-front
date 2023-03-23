@@ -1,0 +1,42 @@
+@import '../../scss/styles.scss';
+
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding: 1.25rem;
+  width: 100%;
+  height: calc(100vh - 210px);
+  right: 0;
+  bottom: 0;
+  background-color: $ivory1;
+  position: relative;
+  .content {
+    position: absolute;
+    top: 40%;
+    font: {
+      size: $lg;
+    }
+    text-align: center;
+    margin-bottom: 20px;
+    > h1 {
+      color: #408e91;
+      margin-bottom: 20px;
+    }
+    div {
+      .logo {
+        font-family: 'Fugaz One', scursive;
+        font-size: $xl;
+        color: $navy1;
+        text-align: center;
+        align-items: center;
+      }
+      color: $navy2;
+      font: {
+        size: 1.375rem;
+        weight: 600;
+      }
+    }
+  }
+}
