@@ -8,8 +8,8 @@ export default function usePayingUserOnly() {
   const navigate = useNavigate();
   useEffect(() => {
     if (!userLoading) {
-      if (!user?.is_host) {
-        navigate('/');
+      if (user?.userCourses[0] === undefined) {
+        navigate('/mypage');
       }
     }
   }, [user, userLoading, navigate]);

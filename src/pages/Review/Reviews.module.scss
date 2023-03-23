@@ -1,7 +1,11 @@
 @import '../../scss/styles.scss';
+
+/* 전체 */
 body {
   background-color: #fcfcfc;
 }
+
+/* Review */
 .review {
   display: flex;
   flex-direction: column;
@@ -31,23 +35,40 @@ body {
       margin-right: 10px;
       font: {
         weight: 200;
-        size: 0.75rem;
+        size: $sm;
       }
     }
   }
   .nickname {
     font: {
-      size: 1.125rem;
+      size: $lg;
       weight: 500;
     }
     margin-bottom: 4px;
   }
 }
 
+/* Reviews */
 .container {
   display: flex;
   flex-direction: column;
   margin: 20px 0;
+  .option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .order {
+      display: flex;
+      > button {
+        background-color: white;
+        border: 1px solid $blue1;
+        border-radius: 3px;
+        cursor: pointer;
+        padding: 3px 8px;
+        margin-left: 5px;
+      }
+    }
+  }
 }
 .reviews {
   max-width: 800px;
