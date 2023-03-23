@@ -79,3 +79,5 @@ export const signUp = ({ username, password, email, nickname }) =>
       }
     )
     .then((res) => res.data);
+
+/* 창섭님 추가 API */

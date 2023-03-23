@@ -1,4 +1,3 @@
-import Logo from '../../components/common/Logo';
 import styles from './ReviewNotFound.module.scss';
 
 export default function ReviewNotFound() {
