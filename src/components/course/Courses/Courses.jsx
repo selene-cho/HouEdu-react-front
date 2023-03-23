@@ -1,19 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Courses.module.scss';
 import { Link } from 'react-router-dom';
-import data from '../../../dummy/data.json';
+import { fetchCourse } from '../../../api/api';
 
-const SHOW_COUNT_DEFAULT = 3;
+const SHOW_COUNT_DEFAULT = 4;
 const ALL_CATEGORIES_FILTER = '*';
 
 export default function Courses() {
    const [showCount, setShowCount] = useState(SHOW_COUNT_DEFAULT);
    const [selectedCategory, setSelectedCategory] = useState(ALL_CATEGORIES_FILTER);
+   const [course, setCourse] = useState([]);
 
-   const courses = data.lecture;
-   console.log(courses);
+   useEffect(() => {
+      const getCourses = async () => {
+         const data = await fetchCourse();
+         setCourse(data);
+      };
 
-   const filteredCourses = courses?.filter(course => selectedCategory === ALL_CATEGORIES_FILTER || selectedCategory === course?.crs_category);
+      getCourses();
+   }, []);
+
+   const filteredCourses = course?.filter(course => selectedCategory === ALL_CATEGORIES_FILTER || selectedCategory === course?.crs_category);
 
    const handleShowMore = () => setShowCount(prevCount => prevCount + SHOW_COUNT_DEFAULT);
 
@@ -25,7 +32,7 @@ export default function Courses() {
             <img className={styles.crs__image} src={course.thumbnail} alt={`courses ${course.id}`} />
          </Link>
          <div>
-            <span>{course.crs_category}</span>
+            <span>{course.category}</span>
             <p>{course.tcr.tcr_name}</p>
             <p>{course.crs_name}</p>
             <p>{course.price}</p>
@@ -54,12 +61,12 @@ export default function Courses() {
             {filteredCourses?.slice(0, showCount).map(course => (
                <CourseItem key={course.id} course={course} />
             ))}
-            {filteredCourses && showCount < filteredCourses.length && filteredCourses.length > SHOW_COUNT_DEFAULT && (
-               <div className={styles.showMore} onClick={handleShowMore}>
-                  더 보기
-               </div>
-            )}
          </div>
+         {filteredCourses && showCount < filteredCourses.length && filteredCourses.length > SHOW_COUNT_DEFAULT && (
+            <div className={styles.showMore} onClick={handleShowMore}>
+               더 보기
+            </div>
+         )}
       </div>
    );
 }
