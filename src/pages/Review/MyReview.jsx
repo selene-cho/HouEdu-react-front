@@ -1,13 +1,14 @@
 import ProtectedPage from '../../components/layout/ProtectedPage';
 import UsePayingUserOnly from '../../components/layout/UsePayingUserOnly';
 import ReviewForm from './ReviewForm';
+import MyReviewList from './MyReviewList';
 
-export default function UploadReview() {
+export default function MyReview() {
   return (
     <ProtectedPage>
       <UsePayingUserOnly>
         <ReviewForm />
-        <div>My Review</div>
+        <MyReviewList />
       </UsePayingUserOnly>
     </ProtectedPage>
   );
