@@ -18,11 +18,11 @@ const INITIAL_VALUES = {
 
 export default function ReviewForm() {
   const { isLoading, data } = useQuery(['myreviews'], getMyReviews);
-
+  console.log('data', data);
   // const [isSubmitting, setIsSubmitting] = useState(false);
   // const [submittingError, setSubmittingError] = useState(null);
   const [values, setValues] = useState(INITIAL_VALUES);
-
+  console.log(values);
   const handleChange = (name, value) => {
     setValues((preValues) => ({
       ...preValues,
@@ -68,10 +68,10 @@ export default function ReviewForm() {
           <div className={styles.courses}>
             <select
               className={styles.courseName}
+              key={values.crs}
               name="crs"
               value={values.crs}
-              onChange={handleInputChange}
-              key={values.crs}
+              onChange={handleChange}
               placeholder="강의명 선택"
               required
             >

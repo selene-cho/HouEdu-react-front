@@ -10,6 +10,7 @@ export default function ReviewList() {
   console.log('mydata', data);
 
   const [items, setItems] = useState([]);
+  console.log('items', items);
   // const [order, setOrder] = useState('created_at');
 
   // const sortedReviews = items.sort((a, b) => b[order] - a[order]);
@@ -29,7 +30,7 @@ export default function ReviewList() {
 
   useEffect(() => {
     setItems(data);
-  }, [data]);
+  }, []);
 
   // useEffect(() => {
   //   handleLoad(order);
@@ -51,7 +52,7 @@ export default function ReviewList() {
           </div>
         </div> */}
         <ul className={styles.reviews}>
-          {data?.map((item) => {
+          {items?.map((item) => {
             return (
               <li key={item.id}>
                 <Review item={item} onDelete={handleDelete} />

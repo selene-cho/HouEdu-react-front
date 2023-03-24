@@ -6,12 +6,12 @@ import DetailCurriculum from '../components/course/Details/Curriculum/DetailCurr
 import Result from '../components/course/Details/Result_Review/Result_Review';
 
 export default function CourseDetail() {
-   return (
-      <div className={styles.container}>
-         <DetailBanner />
-         <DetailInfo />
-         <DetailCurriculum />
-         <Result />
-      </div>
-   );
+  return (
+    <div className={styles.container}>
+      <DetailBanner />
+      <DetailInfo />
+      <DetailCurriculum />
+      <Result />
+    </div>
+  );
 }
