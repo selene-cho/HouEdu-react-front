@@ -7,7 +7,7 @@ function formatDate(value) {
   const date = new Date(value);
   return `${date.getFullYear()}.${date.getMonth()}.${date.getDate()}`;
 }
-console.log(typeof formatDate('created_at'));
+// console.log(typeof formatDate('created_at')); //string
 
 /* Review 1개 */
 export default function Review({

@@ -1,22 +1,18 @@
 import axios from 'axios';
-// import Cookies from 'js-cookie';
+import Cookies from 'js-cookie';
 import Cookie from 'js-cookie';
 
 const instance = axios.create({
   //baseURL: "http://3.38.150.223/api/v1/",
   baseURL: 'http://127.0.0.1:8000/api/v1/',
-  // headers: {
-  //   'X-CSRFToken': Cookies.get('csrftoken') || '',
-  // },
+  headers: {
+    'X-CSRFToken': Cookies.get('csrftoken') || '',
+  },
   withCredentials: true,
 });
 
-export const getReviews = () => instance.get(`reviews`).then((res) => res.data);
-
-// export const getReview = (order = 'created_at') => {
-//   const query = `order=${order}`;
-//   return instance.get(`reviews?${query}`).then((res) => res.data);
-// };
+export const getReviews = () =>
+  instance.get(`reviews/`).then((res) => res.data);
 
 export const getMyReviews = () =>
   instance.get(`users/myinfo/myreviews/`).then((res) => res.data);

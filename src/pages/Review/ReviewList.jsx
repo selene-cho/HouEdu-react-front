@@ -6,19 +6,31 @@ import { useEffect, useState } from 'react';
 
 /* Review 전체 */
 export default function ReviewList() {
-  const { data: reviews } = useQuery(['reviews'], getReviews);
+  const { data: reviews } = useQuery(['reviews'], getReviews, {
+    staleTime: 3000,
+  });
   console.log('reviews', reviews);
 
   const [items, setItems] = useState([]);
   console.log('items', items);
   const [order, setOrder] = useState('created_at');
 
+  useEffect(() => {
+    setItems(reviews);
+  }, [reviews]);
+
+  // useEffect(() => {
+  //   if (reviews) {
+  //     setItems(reviews);
+  //   }
+  // }, [reviews]);
+
   const sortedReviews = items.sort((a, b) => b[order] - a[order]);
 
   const handleNewestClick = () => setOrder('created_at');
   const handleBestClick = () => setOrder('star');
 
-  const handleDelete = (id) => {
+  const handleDelete = ({ id }) => {
     const nextData = items.filter((item) => item.id !== id);
     setItems(nextData);
   };
@@ -29,28 +41,8 @@ export default function ReviewList() {
   // };
 
   // useEffect(() => {
-  //   setItems(data);
-  // }, [data]);
-
-  // useEffect(() => {
   //   handleLoad(order);
   // }, [order]);
-
-  useEffect(() => {
-    if (reviews) {
-      setItems(reviews);
-    }
-  }, [reviews]);
-
-  // /* Checkbox */
-
-  // const [checkedItems, setCheckedItems] = useState(new Set());
-
-  // const checkedItemHandler = (id, isChecked) => {
-  //   if (isChecked) {
-  //     checkedItems.add(id);
-  //   }
-  // };
 
   return (
     <section className={styles.container}>
@@ -69,7 +61,7 @@ export default function ReviewList() {
           {sortedReviews?.map((item) => {
             return (
               <li key={item.id}>
-                <Review item={item} onDelete={handleDelete} />
+                <Review review={item} onDelete={handleDelete} />
               </li>
             );
           })}
