@@ -32,30 +32,28 @@
       gap: 4rem;
       padding: 2rem;
 
-      .result_img {
+      .reviews {
          display: flex;
          gap: 1rem;
          text-align: center;
          border: 1px solid #ccc;
          padding: 1rem;
-
-         img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin-top: 10px;
-         }
+         height: 250px;
 
          .review__info {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: left;
             padding: 0.5rem;
             width: 10rem;
+            height: 100%;
          }
 
          span {
-            font-size: 16px;
+            padding: 0.5rem 0;
+            font-size: 14px;
             font-weight: bold;
             color: #333;
 

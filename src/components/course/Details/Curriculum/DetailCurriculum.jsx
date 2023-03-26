@@ -1,16 +1,20 @@
 import React from 'react';
+import { useCourse } from '../../../hooks/useCourse';
 import styles from './DetailCurriculum.module.scss';
-import dummy from './tabs.json';
 
 export default function DetailCurriculum() {
-   console.log(dummy.map(item => console.log(item.title)));
+   const data = useCourse();
+
    return (
       <section id='curriculum' className={styles.curriculum}>
          <div className={styles.tab_menu}>
             <div className={styles.title}>커리큘럼</div>
             <ul className={styles.ul}>
-               {dummy.map(items => (
-                  <li className={styles.li}>{items.title}</li>
+               {data?.lectures.map(items => (
+                  <li className={styles.li} key={items.id}>
+                     {console.log('data?', items.lctr_name)}
+                     {items.lctr_name}
+                  </li>
                ))}
             </ul>
          </div>
