@@ -7,8 +7,8 @@ import styles from './SocialLogin.module.scss';
 
 export default function SocialLogin() {
   const kakaoParams = {
-    client_id: 'ec72411cc6b187772440b8c3801b3090',
-    redirect_uri: 'http://127.0.0.1:3000/social/kakao',
+    client_id: process.env.REACT_APP_KAKAO_CLIENT_ID,
+    redirect_uri: process.env.REACT_APP_KAKAO_REDIRECT_URI,
     response_type: 'code',
   };
   const params = new URLSearchParams(kakaoParams).toString();
@@ -22,7 +22,7 @@ export default function SocialLogin() {
       </button>
       <button className={styles.github}>
         <Link
-          to="https://github.com/login/oauth/authorize?client_id=b40759dbc613bb53f81d&scope=read:user,user:email"
+          to={`https://github.com/login/oauth/authorize?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&scope=read:user,user:email`}
           className={styles.link}
         >
           <BsGithub className={styles.sns} />

@@ -1,0 +1,43 @@
+@import '../scss/styles.scss';
+
+.container {
+  width: 100%;
+  padding: 50px 0;
+  @include set-center;
+  .title {
+    margin: 20px 0;
+    font: {
+      size: $xl;
+      weight: 500;
+    }
+  }
+  .form {
+    @include set-center;
+    label {
+      margin: 10px 0;
+      font: {
+        size: $reg;
+      }
+      input {
+        padding: 8px;
+        margin-left: 10px;
+        width: 200px;
+        font-size: $reg;
+        border: 1px solid $beige2;
+        border-radius: 5px;
+      }
+    }
+    button {
+      margin: 20px 0;
+      padding: 8px 10px;
+      background-color: $navy1;
+      color: white;
+      border-radius: 5px;
+      font-size: $reg;
+      &:hover {
+        background-color: $blue2;
+        cursor: pointer;
+      }
+    }
+  }
+}

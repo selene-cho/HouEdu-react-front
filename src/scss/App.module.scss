@@ -1,9 +1,13 @@
+@import '../scss/styles.scss';
+
 .body {
   padding-top: 70px;
-  max-width: 1400px;
+  position: relative;
+  max-width: $maxWidth;
   min-height: calc(100vh - 140px);
   position: relative;
   display: flex;
+  flex-direction: column;
   margin: 0 auto;
   white-space: pre-wrap;
 }

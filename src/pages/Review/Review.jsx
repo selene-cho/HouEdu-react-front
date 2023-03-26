@@ -2,18 +2,19 @@ import styles from './Review.module.scss';
 import Rating from './Rating';
 import { FaTrash } from 'react-icons/fa';
 
-/* 날짜 형식 변환 YYYY. MM. DD */
+/* 날짜 형식 변환 YYYY.MM.DD */
 function formatDate(value) {
   const date = new Date(value);
-  return `${date.getFullYear()}. ${date.getMonth()}. ${date.getDate()}`;
+  return `${date.getFullYear()}.${date.getMonth()}.${date.getDate()}`;
 }
+console.log(typeof formatDate('created_at'));
 
 /* Review 1개 */
-export default function Review({ item, onDelete }) {
-  // console.log('item', item);
-  const { crs, star, created_at, user, content, img_url } = item;
-
-  const handleDeleteClick = () => onDelete(item.id);
+export default function Review({
+  review: { id, crs, star, created_at, user, content, img_url },
+  onDelete,
+}) {
+  const handleDelete = () => onDelete(id);
 
   return (
     // <img className={styles.avatar} src={img_url} alt={user} />
@@ -27,7 +28,7 @@ export default function Review({ item, onDelete }) {
       </div>
       <p className={styles.nickname}>{user.nickname}</p>
       <p className={styles.content}>{content}</p>
-      <button onClick={handleDeleteClick}>
+      <button onClick={handleDelete}>
         <FaTrash />
       </button>
     </div>

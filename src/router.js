@@ -18,54 +18,55 @@ import ReviewForm from './pages/Review/ReviewForm';
 import MyReview from './pages/Review/MyReview';
 import MyPage from './pages/MyPage';
 import ReviewNotFound from './pages/Review/ReviewNotFound';
+import EditProfile from './pages/EditProfile';
 
 // const isLoggedIn = useReactiveVar(isLoggedInVar);
 
 const router = createBrowserRouter([
-   {
-      path: '/',
-      element: <App />,
-      errorElement: <NotFound />, // 사용자 지정 Error Page
-      children: [
-         { index: true, path: '', element: <Home /> },
-         { path: 'courses', element: <CourseList /> },
-         { path: 'courses/:courseId', element: <CourseDetail /> },
-         { path: 'reviews', element: <ReviewList /> },
-         { path: 'review/form', element: <ReviewForm /> },
-         { path: 'portfolio', element: <Portfolio /> },
-         {
-            path: 'mypage',
-            element: <MyPage />,
-            children: [
-               // { path: 'edit/profile', element: <EditProfile /> },
-               { path: 'review', element: <MyReview /> },
-               { path: 'review/notfound', element: <ReviewNotFound /> },
-            ],
-         },
-         { path: 'carts', element: <MyCart /> },
-      ],
-   },
-   {
-      path: '/signup',
-      element: <SignUp />,
-   },
-   {
-      path: '/login',
-      element: <Login />,
-   },
-   {
-      path: '/social',
-      children: [
-         {
-            path: 'github',
-            element: <GithubLogin />,
-         },
-         {
-            path: 'kakao',
-            element: <KakaoLogin />,
-         },
-      ],
-   },
+  {
+    path: '/',
+    element: <App />,
+    errorElement: <NotFound />, // 사용자 지정 Error Page
+    children: [
+      { index: true, path: '', element: <Home /> },
+      { path: 'courses', element: <CourseList /> },
+      { path: 'course/:courseId', element: <CourseDetail /> },
+      { path: 'reviews', element: <ReviewList /> },
+      { path: 'review/form', element: <ReviewForm /> },
+      { path: 'portfolio', element: <Portfolio /> },
+      {
+        path: 'mypage',
+        element: <MyPage />,
+        children: [
+          { path: 'edit/profile', element: <EditProfile /> },
+          { path: 'review', element: <MyReview /> },
+          { path: 'review/notfound', element: <ReviewNotFound /> },
+        ],
+      },
+      { path: 'carts', element: <MyCart /> },
+    ],
+  },
+  {
+    path: '/signup',
+    element: <SignUp />,
+  },
+  {
+    path: '/login',
+    element: <Login />,
+  },
+  {
+    path: '/social',
+    children: [
+      {
+        path: 'github',
+        element: <GithubLogin />,
+      },
+      {
+        path: 'kakao',
+        element: <KakaoLogin />,
+      },
+    ],
+  },
 ]);
 
 export default router;

@@ -5,7 +5,7 @@ export default function CategoryNavbar() {
   return (
     <div className={styles.container}>
       <ul className={styles.categoryNav}>
-        <Link to="/edit/profile" className={styles.link}>
+        <Link to="edit/profile" className={styles.link}>
           <li>회원 정보 수정</li>
         </Link>
         <Link to="review" className={styles.link}>

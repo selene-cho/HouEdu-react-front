@@ -1,36 +1,39 @@
-import styles from './ReviewList.module.scss';
+import styles from './MyReviewList.module.scss';
 import { useQuery } from '@tanstack/react-query';
 import { getMyReviews } from '../../api/api';
 import Review from './Review';
-import { useEffect, useState } from 'react';
 
 /* Review 전체 */
-export default function ReviewList() {
-  const { data } = useQuery([`myreviews`], getMyReviews);
-  console.log('mydata', data);
+export default function MyReviewList() {
+  const {
+    isLoading,
+    data: myReviews,
+    error,
+  } = useQuery([`myreviews`], getMyReviews);
+  console.log('myReviews', myReviews);
 
-  const [items, setItems] = useState([]);
-  console.log('items', items);
-  // const [order, setOrder] = useState('created_at');
+  // const [items, setItems] = useState(data);
+  // console.log('items', items);
+  // // const [order, setOrder] = useState('created_at');
 
   // const sortedReviews = items.sort((a, b) => b[order] - a[order]);
 
   // const handleNewestClick = () => setOrder('created_at');
   // const handleBestClick = () => setOrder('star');
 
-  const handleDelete = (id) => {
-    const nextData = items.filter((item) => item.id !== id);
-    setItems(nextData);
-  };
+  // const handleDelete = (id) => {
+  //   const nextData = items.filter((item) => item.id !== id);
+  //   setItems(nextData);
+  // };
 
   // const handleLoad = async (options) => {
   //   const { data } = await getReviews(options);
   //   setItems((prevItems) => [...prevItems, ...data]);
   // };
 
-  useEffect(() => {
-    setItems(data);
-  }, []);
+  // useEffect(() => {
+  //   setItems(data);
+  // }, []);
 
   // useEffect(() => {
   //   handleLoad(order);
@@ -44,6 +47,13 @@ export default function ReviewList() {
 
   return (
     <section className={styles.container}>
+      {isLoading && (
+        <div>
+          <p>로그인 중입니다...</p>
+          <p>잠시만 기다려 주세요</p>
+        </div>
+      )}
+      {error && <div>{error}</div>}
       <div className={styles.wrapper}>
         {/* <div className={styles.option}>
           <div className={styles.order}>
@@ -52,13 +62,14 @@ export default function ReviewList() {
           </div>
         </div> */}
         <ul className={styles.reviews}>
-          {items?.map((item) => {
-            return (
-              <li key={item.id}>
-                <Review item={item} onDelete={handleDelete} />
-              </li>
-            );
-          })}
+          {myReviews &&
+            myReviews.map((review) => {
+              return (
+                <li key={review.id}>
+                  <Review review={review} />
+                </li>
+              );
+            })}
         </ul>
       </div>
     </section>

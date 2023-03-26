@@ -9,7 +9,6 @@
   border-radius: 5px;
   width: 100%;
   background-color: white;
-
   .title {
     display: flex;
     flex-direction: row;
@@ -39,5 +38,10 @@
       weight: 500;
     }
     margin-bottom: 4px;
+  }
+  > button {
+    display: flex;
+    justify-content: flex-end;
+    font-size: $lg;
   }
 }

@@ -9,17 +9,12 @@ import { signUp } from '../../api/api';
 import { useCallback, useState } from 'react';
 
 export default function SignUp() {
-  // const [passwordConfirm, setPasswordConfirm] = useState('');
-  // const [isPasswordConfirm, setIsPasswordConfirm] = useState(false);
-  // const [passwordConfirmMessage, setPasswordConfirmMessage] = useState('');
-
   const {
     register,
     formState: { errors },
     handleSubmit,
     setError,
-    watch,
-    reset,
+    getValues,
   } = useForm();
 
   const queryClient = useQueryClient();
@@ -38,22 +33,6 @@ export default function SignUp() {
       console.log('mutation has an error, API CALL ERROR');
     },
   });
-
-  // const onChangePasswordConfirm = useCallback(
-  //   (e) => {
-  //     const passwordConfirmCurrent = e.target.value;
-  //     setPasswordConfirm(passwordConfirmCurrent);
-
-  //     if (password === passwordConfirmCurrent) {
-  //       setPasswordConfirmMessage('비밀번호를 똑같이 입력했어요 : )');
-  //       setIsPasswordConfirm(true);
-  //     } else {
-  //       setPasswordConfirmMessage('비밀번호가 틀려요. 다시 확인해주세요 ㅜ ㅜ');
-  //       setIsPasswordConfirm(false);
-  //     }
-  //   },
-  //   [password]
-  // );
 
   const onSubmit = ({
     username,
@@ -123,9 +102,9 @@ export default function SignUp() {
             {errors.email && (
               <div className={styles.error}>{errors.email.message}</div>
             )}
-            {/* {mutation.isError ? (
+            {mutation.isError ? (
               <div className={styles.error}>이미 존재하는 이메일입니다.</div>
-            ) : null} */}
+            ) : null}
             <div className={styles.inputBox}>
               <FaKey className={styles.icon} />
               <input
@@ -162,6 +141,13 @@ export default function SignUp() {
                 type="password"
                 {...register('passwordConfirm', {
                   required: '비밀번호를 한번 더 입력해주세요.',
+                  validate: {
+                    check: (val) => {
+                      if (getValues('password') !== val) {
+                        return '비밀번호가 일치하지 않습니다.';
+                      }
+                    },
+                  },
                 })}
                 placeholder="비밀번호 확인"
               />
@@ -186,15 +172,7 @@ export default function SignUp() {
             )}
           </div>
           {mutation.isError}
-          <button
-            type="submit"
-            // onClick={() => {
-            //   setError;
-            // }}
-          >
-            회원가입
-          </button>
-          {/* <p>{errors.}</p> */}
+          <button type="submit">회원가입</button>
         </form>
       </div>
     </div>
