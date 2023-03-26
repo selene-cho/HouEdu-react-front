@@ -1,7 +1,9 @@
 import React from 'react';
+import { useCourse } from '../../../hooks/useCourse';
 import styles from './Result_Review.module.scss';
 
 export default function Result() {
+   const data = useCourse();
    return (
       <section id='review' className={styles.container}>
          <div className={styles.title}>
@@ -9,76 +11,15 @@ export default function Result() {
          </div>
 
          <div className={styles.review}>
-            <div className={styles.result_img}>
-               <img src='../image/Detail-thumbnail.jpeg' />
-               <div className={styles.review__info}>
-                  <span>임창섭</span>
-                  <span>2023-03-18</span>
-                  <p>인테리어의 신이 알려주는 팁으로 실전 현장에서 유용하게 쓰이도록 배웠습니다.</p>
+            {data?.reviews.map(item => (
+               <div className={styles.reviews}>
+                  <div className={styles.review__info}>
+                     <span>{item.user.nickname}</span>
+                     <span>{item.updated_at}</span>
+                     <p>{item.content}</p>
+                  </div>
                </div>
-            </div>
-            {/*  */}
-            <div className={styles.result_img}>
-               <img src='../image/Detail-thumbnail.jpeg' />
-               <div className={styles.review__info}>
-                  <span>임창섭</span>
-                  <span>2023-03-18</span>
-                  <p>인테리어의 신이 알려주는 팁으로 실전 현장에서 유용하게 쓰이도록 배웠습니다.</p>
-               </div>
-            </div>
-            {/*  */}
-            <div className={styles.result_img}>
-               <img src='../image/Detail-thumbnail.jpeg' />
-               <div className={styles.review__info}>
-                  <span>임창섭</span>
-                  <span>2023-03-18</span>
-                  <p>인테리어의 신이 알려주는 팁으로 실전 현장에서 유용하게 쓰이도록 배웠습니다.</p>
-               </div>
-            </div>
-            {/*  */}
-            <div className={styles.result_img}>
-               <img src='../image/Detail-thumbnail.jpeg' />
-               <div className={styles.review__info}>
-                  <span>임창섭</span>
-                  <span>2023-03-18</span>
-                  <p>인테리어의 신이 알려주는 팁으로 실전 현장에서 유용하게 쓰이도록 배웠습니다.</p>
-               </div>
-            </div>
-            <div className={styles.result_img}>
-               <img src='../image/Detail-thumbnail.jpeg' />
-               <div className={styles.review__info}>
-                  <span>임창섭</span>
-                  <span>2023-03-18</span>
-                  <p>인테리어의 신이 알려주는 팁으로 실전 현장에서 유용하게 쓰이도록 배웠습니다.</p>
-               </div>
-            </div>
-            {/*  */}
-            <div className={styles.result_img}>
-               <img src='../image/Detail-thumbnail.jpeg' />
-               <div className={styles.review__info}>
-                  <span>임창섭</span>
-                  <span>2023-03-18</span>
-                  <p>인테리어의 신이 알려주는 팁으로 실전 현장에서 유용하게 쓰이도록 배웠습니다.</p>
-               </div>
-            </div>
-            {/*  */}
-            <div className={styles.result_img}>
-               <img src='../image/Detail-thumbnail.jpeg' />
-               <div className={styles.review__info}>
-                  <span>임창섭</span>
-                  <span>2023-03-18</span>
-                  <p>인테리어의 신이 알려주는 팁으로 실전 현장에서 유용하게 쓰이도록 배웠습니다.</p>
-               </div>
-            </div>
-            {/*  */}
-            <div className={styles.result_img}>
-               <img src='../image/Detail-thumbnail.jpeg' />
-               <div className={styles.review__info}>
-                  <span>임창섭</span>
-                  <span>2023-03-18</span>
-                  <p>인테리어의 신이 알려주는 팁으로 실전 현장에서 유용하게 쓰이도록 배웠습니다.</p>
-               </div>
-            </div>
+            ))}
          </div>
       </section>
    );
