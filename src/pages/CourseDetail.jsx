@@ -11,7 +11,7 @@ export default function CourseDetail() {
    console.log('디테일id', coursesId);
 
    return (
-      <div className={styles.container}>
+      <div className={styles.container} id='top'>
          <DetailBanner />
          <DetailInfo />
          <DetailCurriculum />

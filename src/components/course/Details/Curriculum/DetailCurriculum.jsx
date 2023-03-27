@@ -12,7 +12,6 @@ export default function DetailCurriculum() {
             <ul className={styles.ul}>
                {data?.lectures.map(items => (
                   <li className={styles.li} key={items.id}>
-                     {console.log('data?', items.lctr_name)}
                      {items.lctr_name}
                   </li>
                ))}
