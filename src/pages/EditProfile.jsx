@@ -31,16 +31,16 @@ export default function EditProfile() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // fetch('http://127.0.0.1:8000/api/v1/users/myinfo', {
-    //   method: 'PUT',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(userInfo),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => console.log(data))
-    //   .catch((error) => console.error(error));
+    fetch('http://127.0.0.1:8000/api/v1/users/myinfo', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userInfo),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
   };
 
   return (
@@ -53,7 +53,7 @@ export default function EditProfile() {
             type="text"
             name="username"
             value={userInfo.username}
-            onChange={handleInputChange}
+            disabled
           />
         </label>
         <label>
@@ -67,12 +67,7 @@ export default function EditProfile() {
         </label>
         <label>
           이메일 :
-          <input
-            type="email"
-            name="email"
-            value={userInfo.email}
-            onChange={handleInputChange}
-          />
+          <input type="email" name="email" value={userInfo.email} disabled />
         </label>
         <label>
           비밀번호 :

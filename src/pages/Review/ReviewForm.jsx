@@ -98,11 +98,14 @@ export default function ReviewForm() {
                   };
                 });
               }}
+              placeholder={'강의명 선택'}
               value={values.crs}
               required
               // {...register('crs', { required: true })}
-              placeholder="강의명 선택"
             >
+              <option value="" disabled>
+                강의명 선택
+              </option>
               {myCourse?.userCourses.map((review) => (
                 <option
                   key={review.id}

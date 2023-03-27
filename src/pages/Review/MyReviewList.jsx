@@ -9,7 +9,9 @@ export default function MyReviewList() {
     isLoading,
     data: myReviews,
     error,
-  } = useQuery([`myreviews`], getMyReviews);
+  } = useQuery([`myreviews`], getMyReviews, {
+    staleTime: 1000 * 60,
+  });
   console.log('myReviews', myReviews);
 
   // const [items, setItems] = useState(data);
