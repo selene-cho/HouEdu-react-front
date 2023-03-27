@@ -8,7 +8,7 @@ const SHOW_COUNT_DEFAULT = 4;
 const ALL_CATEGORIES_FILTER = '*';
 
 export default function Courses() {
-   const { data } = useQuery(['courses/'], getCourses, {
+   const { data } = useQuery(['course/'], getCourses, {
       staleTime: Infinity, // 캐시 만료 시간을 무한대로 설정
    });
    const [showCount, setShowCount] = useState(SHOW_COUNT_DEFAULT);
@@ -39,7 +39,7 @@ export default function Courses() {
 
    const CourseItem = ({ course }) => (
       <div className={styles.courses}>
-         <Link to={`/courses/${course.id}`} key={course.id} onClick={handleItemClick}>
+         <Link to={`/course/courses/${course.id}`} key={course.id} onClick={handleItemClick}>
             <img className={styles.crs__image} src={course.thumbnail} alt={`courses ${course.id}`} />
          </Link>
          <div>

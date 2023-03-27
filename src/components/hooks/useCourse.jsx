@@ -5,5 +5,7 @@ import { getCourse } from '../../api/api';
 export function useCourse() {
    const { courseId } = useParams();
    const { data } = useQuery([`courses`, courseId], getCourse);
-   return data;
+   return {
+      data: data,
+   };
 }

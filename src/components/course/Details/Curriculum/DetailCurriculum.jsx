@@ -10,7 +10,7 @@ export default function DetailCurriculum() {
          <div className={styles.tab_menu}>
             <div className={styles.title}>커리큘럼</div>
             <ul className={styles.ul}>
-               {data?.lectures.map(items => (
+               {data?.data?.lectures.map(items => (
                   <li className={styles.li} key={items.id}>
                      {items.lctr_name}
                   </li>

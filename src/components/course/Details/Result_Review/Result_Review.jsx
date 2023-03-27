@@ -11,7 +11,7 @@ export default function Result() {
          </div>
 
          <div className={styles.review}>
-            {data?.reviews.map(item => (
+            {data.data?.reviews.map(item => (
                <div className={styles.reviews} key={item.id}>
                   <div className={styles.review__info}>
                      <span>{item.user.nickname}</span>

@@ -2,9 +2,14 @@ import React from 'react';
 import styles from './DetailBanner.module.scss';
 import { Link } from 'react-router-dom';
 import { useCourse } from '../../../hooks/useCourse';
+import { postCourse } from '../../../../api/api';
 
 export default function DetailBanner() {
-   const data = useCourse();
+   const { data } = useCourse();
+   console.log(data?.id);
+   const handleOnClick = async () => {
+      await postCourse({ queryKey: ['course', data?.id] });
+   };
 
    return (
       <section className={styles.container}>
@@ -13,7 +18,8 @@ export default function DetailBanner() {
                <h3>{data?.crs_name}</h3>
                <p>{data?.crs_goal}</p>
                <p>{data?.crs_info}</p>
-               <Link to='/lecture'>
+
+               <Link to='' onClick={handleOnClick}>
                   <button className={styles.banner_btn}>보러가기</button>
                </Link>
             </div>
