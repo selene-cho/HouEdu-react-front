@@ -11,12 +11,15 @@ const instance = axios.create({
   withCredentials: true,
 });
 
+/* 전체 Reviews - GET */
 export const getReviews = () =>
   instance.get(`reviews/`).then((res) => res.data);
 
+/* MyReviews - GET */
 export const getMyReviews = () =>
   instance.get(`users/myinfo/myreviews/`).then((res) => res.data);
 
+/* Review 작성 - POST */
 export const postReviews = ({ crs, star, content }) => {
   return instance
     .post(
@@ -30,7 +33,7 @@ export const postReviews = ({ crs, star, content }) => {
     )
     .then((res) => res.data);
 };
-
+/* Review 삭제 - DELETE */
 export const deleteReviews = (id) =>
   instance.delete(`users/myinfo/myreviews/${id}`).then((res) => res.data);
 
@@ -47,47 +50,11 @@ export const deleteReviews = (id) =>
 //     )
 //     .then((res) => res.data);
 
-/* 회원 기본정보 GET */
+/* 회원 기본정보 - GET */
 export const getMyInfo = () =>
   instance.get(`users/myinfo/`).then((res) => res.data);
 
-/* 로그인, 로그아웃 API */
-
-export const logOut = () =>
-  instance
-    .post(`users/logout/`, null, {
-      headers: {
-        'X-CSRFToken': Cookie.get('csrftoken') || '',
-      },
-    })
-    .then((res) => res.data);
-
-export const githubLogIn = (code) =>
-  instance
-    .post(
-      `users/github/`, // django의 users/github으로 코드 확인 요청
-      { code },
-      {
-        headers: {
-          'X-CSRFToken': Cookie.get('csrftoken') || '',
-        },
-      }
-    )
-    .then((res) => res.status);
-
-export const kakaoLogIn = (code) =>
-  instance
-    .post(
-      `users/kakao/`,
-      { code },
-      {
-        headers: {
-          'X-CSRFToken': Cookie.get('csrftoken') || '',
-        },
-      }
-    )
-    .then((res) => res.status);
-
+/* 일반 로그인 - POST */
 export const usernameLogIn = ({ username, password }) =>
   instance
     .post(
@@ -101,6 +68,45 @@ export const usernameLogIn = ({ username, password }) =>
     )
     .then((res) => res.data);
 
+/* 로그아웃 - POST */
+export const logOut = () =>
+  instance
+    .post(`users/logout/`, null, {
+      headers: {
+        'X-CSRFToken': Cookie.get('csrftoken') || '',
+      },
+    })
+    .then((res) => res.data);
+
+/* Github 로그인 - POST */
+export const githubLogIn = (code) =>
+  instance
+    .post(
+      `users/github/`, // django의 users/github으로 코드 확인 요청
+      { code },
+      {
+        headers: {
+          'X-CSRFToken': Cookie.get('csrftoken') || '',
+        },
+      }
+    )
+    .then((res) => res.status);
+
+/* Kakao 로그인 - POST */
+export const kakaoLogIn = (code) =>
+  instance
+    .post(
+      `users/kakao/`,
+      { code },
+      {
+        headers: {
+          'X-CSRFToken': Cookie.get('csrftoken') || '',
+        },
+      }
+    )
+    .then((res) => res.status);
+
+/* 닉네임 수정 - PUT */
 export const editUser = ({ id, username, nickname, email }) =>
   instance.put(
     `users/myinfo/`,
@@ -112,8 +118,10 @@ export const editUser = ({ id, username, nickname, email }) =>
     }
   );
 
+/* 비밀번호 변경 - PUT */
 export const editPassword = () => instance.put(`users/password/`);
 
+/* 회원가입 - POST */
 export const signUp = ({ username, password, email, nickname }) =>
   instance
     .post(
