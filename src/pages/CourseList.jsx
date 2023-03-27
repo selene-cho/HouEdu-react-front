@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PortfolioSlid from '../components/course/Portfolio/PortfolioSild';
 import styles from './CourseList.module.scss';
-import CoursesLoader from '../components/course/Loader/CoursesLoader';
 import PortfoliosLoader from '../components/course/Loader/PortfolioLoader';
 import SearchLoader from '../components/course/Loader/SearchLoader';
 import Courses from '../components/course/Courses/Courses';
@@ -23,13 +22,11 @@ export default function CourseList() {
             <>
                <PortfoliosLoader />,
                <SearchLoader />
-               <CoursesLoader />
             </>
          ) : (
             <>
                <PortfolioSlid />
                <Courses />
-               {/* <Search /> */}
             </>
          )}
       </div>
