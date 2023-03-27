@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useState, useEffect } from 'react';
-import { getMyInfo } from '../api/api';
+import { getMyInfo, editNickName } from '../api/api';
 import styles from './EditProfile.module.scss';
 
 export default function EditProfile() {
@@ -17,8 +17,8 @@ export default function EditProfile() {
     setUserInfo(data);
   }, [data]);
 
-  const handleInputChange = (event) => {
-    const target = event.target;
+  const handleInputChange = (e) => {
+    const target = e.target;
     const value = target.value;
     const name = target.name;
 
@@ -28,19 +28,19 @@ export default function EditProfile() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    fetch('http://127.0.0.1:8000/api/v1/users/myinfo', {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(userInfo),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
+    // fetch('http://127.0.0.1:8000/api/v1/users/myinfo/', {
+    //   method: 'PUT',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(userInfo),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => console.log(data))
+    //   .catch((error) => console.error(error));
   };
 
   return (
@@ -78,7 +78,9 @@ export default function EditProfile() {
             onChange={handleInputChange}
           />
         </label>
-        <button type="submit">수정</button>
+        <button type="submit" onClick={handleSubmit}>
+          수정
+        </button>
       </form>
     </div>
   );

@@ -107,16 +107,19 @@ export const kakaoLogIn = (code) =>
     .then((res) => res.status);
 
 /* 닉네임 수정 - PUT */
-export const editUser = ({ id, username, nickname, email }) =>
-  instance.put(
-    `users/myinfo/`,
-    { username, nickname, email },
-    {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }
-  );
+export const editNickName = ({ nickname }) =>
+  instance
+    .put(
+      `users/myinfo/`,
+      { nickname },
+      {
+        headers: {
+          'X-CSRFToken': Cookie.get('csrftoken') || '',
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+    .then((res) => res.data);
 
 /* 비밀번호 변경 - PUT */
 export const editPassword = () => instance.put(`users/password/`);

@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { deleteReviews, getReviews } from '../../api/api';
 import Review from './Review';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 /* Review 전체 */
 export default function ReviewList() {
@@ -12,47 +12,32 @@ export default function ReviewList() {
     data: reviews,
     error,
   } = useQuery(['reviews'], getReviews, {
-    staleTime: 5000,
+    staleTime: 2000,
   });
-  console.log('reviews', reviews);
-
-  const { data } = useQuery(['deleteReviews', deleteReviews]);
+  // console.log('reviews', reviews);
+  const navigate = useNavigate();
 
   const [items, setItems] = useState([]);
-  console.log('items', items);
+  // console.log('items', items);
   const [order, setOrder] = useState();
 
   const sortedReviews = items.sort((a, b) => b[order] - a[order]);
 
-  useEffect(() => {
-    if (reviews) {
-      setItems(reviews);
-    }
-  }, [reviews]);
-
-  // useEffect(()=>{
-  //   async function deleteRevies() {
-
-  //   }
-  // })
-
-  const handleNewestClick = () => setOrder('created_at');
+  const handleNewestClick = () => setOrder();
   const handleBestClick = () => setOrder('star');
 
   const handleDelete = async (id) => {
     const result = await deleteReviews(id);
     if (!result) return;
     setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    navigate('reviews');
   };
 
-  // const handleLoad = async (options) => {
-  //   const { data } = await getReviews(options);
-  //   setItems((prevItems) => [...prevItems, ...data]);
-  // };
-
-  // useEffect(() => {
-  //   handleLoad(order);
-  // }, [order]);
+  useEffect(() => {
+    if (reviews) {
+      setItems(reviews);
+    }
+  }, [reviews]);
 
   return (
     <section className={styles.container}>
@@ -76,7 +61,6 @@ export default function ReviewList() {
               return (
                 <li key={item.id}>
                   <Review review={item} onDelete={handleDelete} />
-                  {/* <Review review={item} onDelete={handleDelete} /> */}
                 </li>
               );
             })}

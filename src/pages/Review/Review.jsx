@@ -1,13 +1,15 @@
 import styles from './Review.module.scss';
 import Rating from './Rating';
 import { FaTrash } from 'react-icons/fa';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { deleteReviews } from '../../api/api';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 /* 날짜 형식 변환 YYYY.MM.DD */
 function formatDate(value) {
   const date = new Date(value);
   return `${date.getFullYear()}년 ${date.getMonth()}월 ${date.getDate()}일`;
 }
-// console.log(typeof formatDate('created_at')); //string
 
 /* Review 1개 */
 export default function Review({
@@ -17,6 +19,17 @@ export default function Review({
   // const handleDelete = (id) => {
   //   onDelete(id);
   // };
+
+  const queryClient = useQueryClient();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const mutation = useMutation(deleteReviews, {
+    onSuccess: () => {
+      queryClient.refetchQueries(['myreviews']);
+      navigate(location.pathname);
+    },
+  });
 
   return (
     // <img className={styles.avatar} src={img_url} alt={user} />
@@ -35,6 +48,8 @@ export default function Review({
           onClick={() => {
             if (window.confirm(`정말로 삭제 하시겠습니까?`)) {
               onDelete(id);
+              mutation.mutate();
+              setTimeout(() => navigate(`${location.pathname}`), 1000);
             }
           }}
         >
