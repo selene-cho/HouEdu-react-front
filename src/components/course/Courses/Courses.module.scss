@@ -30,6 +30,10 @@
             color: #4c4c4c;
             border: 1px solid #93abbf;
          }
+         &.active {
+            background-color: #fff;
+            color: #333;
+         }
       }
    }
 
@@ -85,6 +89,7 @@
             left: 1rem;
             padding: 0.3rem;
             border-radius: 0.5rem;
+            color: #fff;
             background-color: yellowgreen;
          }
 

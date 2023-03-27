@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import styles from './Courses.module.scss';
 import { Link } from 'react-router-dom';
 import { getCourses } from '../../../api/api';
@@ -8,32 +8,38 @@ const SHOW_COUNT_DEFAULT = 4;
 const ALL_CATEGORIES_FILTER = '*';
 
 export default function Courses() {
-   const { data } = useQuery([`courses/`], getCourses);
+   const { data } = useQuery(['courses/'], getCourses, {
+      staleTime: Infinity, // 캐시 만료 시간을 무한대로 설정
+   });
    const [showCount, setShowCount] = useState(SHOW_COUNT_DEFAULT);
    const [selectedCategory, setSelectedCategory] = useState(ALL_CATEGORIES_FILTER);
-   const [course, setCourse] = useState([]);
-   console.log('course', course);
 
-   useEffect(() => {
-      setCourse(data);
-   }, []);
+   const handleItemClick = () => {
+      window.scrollTo(0, 0);
+   };
 
-   const filteredCourses = data?.filter(course => selectedCategory === ALL_CATEGORIES_FILTER || selectedCategory === course?.crs_category);
+   // courses 필터링
+   const filteredCourses = useMemo(() => {
+      if (!data) return [];
+
+      if (selectedCategory === ALL_CATEGORIES_FILTER) {
+         return data;
+      }
+
+      return data.filter(course => course?.category.name === selectedCategory);
+   }, [data, selectedCategory]);
+
+   const hasMoreCourses = useMemo(() => showCount < filteredCourses.length, [showCount, filteredCourses]);
 
    const handleShowMore = () => setShowCount(prevCount => prevCount + SHOW_COUNT_DEFAULT);
-
    const handleFilter = category => setSelectedCategory(category);
 
-   const categoryBtn = [
-      { name: '모두', value: ALL_CATEGORIES_FILTER },
-      { name: '기초', value: '기초' },
-      { name: '중급', value: '중급' },
-      { name: '고급', value: '고급' },
-   ];
+   // showCount 개수만큼 courses 슬라이싱
+   const slicedCourses = useMemo(() => filteredCourses.slice(0, showCount), [filteredCourses, showCount]);
 
    const CourseItem = ({ course }) => (
       <div className={styles.courses}>
-         <Link to={`/courses/${course.id}`} key={course.id}>
+         <Link to={`/courses/${course.id}`} key={course.id} onClick={handleItemClick}>
             <img className={styles.crs__image} src={course.thumbnail} alt={`courses ${course.id}`} />
          </Link>
          <div>
@@ -48,11 +54,7 @@ export default function Courses() {
    return (
       <div className={styles.container}>
          <div className={styles.filterButtons}>
-            <button
-               type='button'
-               className={selectedCategory === ALL_CATEGORIES_FILTER ? styles.active : ''}
-               onClick={() => handleFilter(ALL_CATEGORIES_FILTER)}
-            >
+            <button type='button' className={selectedCategory === '*' ? styles.active : ''} onClick={() => handleFilter('*')}>
                모두
             </button>
             <button type='button' className={selectedCategory === '기초' ? styles.active : ''} onClick={() => handleFilter('기초')}>
@@ -67,11 +69,11 @@ export default function Courses() {
          </div>
 
          <div className={styles.course}>
-            {filteredCourses?.slice(0, showCount).map(course => (
+            {slicedCourses.map(course => (
                <CourseItem key={course.id} course={course} />
             ))}
          </div>
-         {filteredCourses && showCount < filteredCourses.length && filteredCourses.length > SHOW_COUNT_DEFAULT && (
+         {hasMoreCourses && (
             <div className={styles.showMore} onClick={handleShowMore}>
                더 보기
             </div>
