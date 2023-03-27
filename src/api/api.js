@@ -17,13 +17,17 @@ export const getReviews = () =>
 export const getMyReviews = () =>
   instance.get(`users/myinfo/myreviews/`).then((res) => res.data);
 
-export const postReviews = (variables) => {
+export const postReviews = ({ crs, star, content }) => {
   return instance
-    .post(`users/myinfo/myreviews/`, variables, {
-      headers: {
-        'X-CSRFToken': Cookie.get('csrftoken') || '',
-      },
-    })
+    .post(
+      `users/myinfo/myreviews/`,
+      { crs, star, content },
+      {
+        headers: {
+          'X-CSRFToken': Cookie.get('csrftoken') || '',
+        },
+      }
+    )
     .then((res) => res.data);
 };
 
@@ -86,7 +90,7 @@ export const usernameLogIn = ({ username, password }) =>
 
 export const editUser = ({ id, username, nickname, email }) =>
   instance.put(
-    `users/myinfo/${id}`,
+    `users/myinfo/`,
     { username, nickname, email },
     {
       headers: {

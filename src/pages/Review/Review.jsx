@@ -5,7 +5,7 @@ import { FaTrash } from 'react-icons/fa';
 /* 날짜 형식 변환 YYYY.MM.DD */
 function formatDate(value) {
   const date = new Date(value);
-  return `${date.getFullYear()}.${date.getMonth()}.${date.getDate()}`;
+  return `${date.getFullYear()}년 ${date.getMonth()}월 ${date.getDate()}일`;
 }
 // console.log(typeof formatDate('created_at')); //string
 

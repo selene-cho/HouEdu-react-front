@@ -13,19 +13,15 @@ export default function ReviewList() {
 
   const [items, setItems] = useState([]);
   console.log('items', items);
-  const [order, setOrder] = useState('created_at');
-
-  useEffect(() => {
-    setItems(reviews);
-  }, [reviews]);
-
-  // useEffect(() => {
-  //   if (reviews) {
-  //     setItems(reviews);
-  //   }
-  // }, [reviews]);
+  const [order, setOrder] = useState();
 
   const sortedReviews = items.sort((a, b) => b[order] - a[order]);
+
+  useEffect(() => {
+    if (reviews) {
+      setItems(reviews);
+    }
+  }, [reviews]);
 
   const handleNewestClick = () => setOrder('created_at');
   const handleBestClick = () => setOrder('star');
@@ -48,10 +44,6 @@ export default function ReviewList() {
     <section className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.option}>
-          <div className={styles.label}>
-            <input id="checkbox" type="checkbox" />
-            <label htmlFor="checkbox">내가 작성한 글</label>
-          </div>
           <div className={styles.order}>
             <button onClick={handleNewestClick}>최신순</button>
             <button onClick={handleBestClick}>별점 높은 순</button>

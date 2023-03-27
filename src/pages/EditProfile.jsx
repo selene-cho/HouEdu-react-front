@@ -15,7 +15,7 @@ export default function EditProfile() {
 
   useEffect(() => {
     setUserInfo(data);
-  }, []);
+  }, [data]);
 
   const handleInputChange = (event) => {
     const target = event.target;

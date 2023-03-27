@@ -49,7 +49,7 @@ export default function MyReviewList() {
     <section className={styles.container}>
       {isLoading && (
         <div>
-          <p>로그인 중입니다...</p>
+          <p>로딩중입니다...</p>
           <p>잠시만 기다려 주세요</p>
         </div>
       )}
