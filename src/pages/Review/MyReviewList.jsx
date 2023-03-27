@@ -9,7 +9,9 @@ export default function MyReviewList() {
     isLoading,
     data: myReviews,
     error,
-  } = useQuery([`myreviews`], getMyReviews);
+  } = useQuery([`myreviews`], getMyReviews, {
+    staleTime: 1000 * 60,
+  });
   console.log('myReviews', myReviews);
 
   // const [items, setItems] = useState(data);
@@ -49,7 +51,7 @@ export default function MyReviewList() {
     <section className={styles.container}>
       {isLoading && (
         <div>
-          <p>로그인 중입니다...</p>
+          <p>로딩중입니다...</p>
           <p>잠시만 기다려 주세요</p>
         </div>
       )}

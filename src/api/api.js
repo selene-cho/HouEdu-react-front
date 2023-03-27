@@ -15,14 +15,18 @@ export const getReviews = () => instance.get(`reviews/`).then(res => res.data);
 
 export const getMyReviews = () => instance.get(`users/myinfo/myreviews/`).then(res => res.data);
 
-export const postReviews = variables => {
-   return instance
-      .post(`users/myinfo/myreviews/`, variables, {
-         headers: {
-            'X-CSRFToken': Cookie.get('csrftoken') || '',
-         },
-      })
-      .then(res => res.data);
+export const postReviews = ({ crs, star, content }) => {
+  return instance
+    .post(
+      `users/myinfo/myreviews/`,
+      { crs, star, content },
+      {
+        headers: {
+          'X-CSRFToken': Cookie.get('csrftoken') || '',
+        },
+      }
+    )
+    .then((res) => res.data);
 };
 
 export const deleteReviews = id => instance.delete(`users/myinfo/myreviews/${id}`).then(res => res.data);
@@ -81,13 +85,12 @@ export const usernameLogIn = ({ username, password }) =>
       .then(res => res.data);
 
 export const editUser = ({ id, username, nickname, email }) =>
-   instance.put(
-      `users/myinfo/${id}`,
-      { username, nickname, email },
-      {
-         headers: {
-            'Content-Type': 'application/json',
-         },
+  instance.put(
+    `users/myinfo/`,
+    { username, nickname, email },
+    {
+      headers: {
+        'Content-Type': 'application/json',
       },
    );
 
