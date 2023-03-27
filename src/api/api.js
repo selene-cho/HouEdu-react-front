@@ -122,7 +122,17 @@ export const editNickName = ({ nickname }) =>
     .then((res) => res.data);
 
 /* 비밀번호 변경 - PUT */
-export const editPassword = () => instance.put(`users/password/`);
+export const editPassword = ({ old_password, new_password }) =>
+  instance.put(
+    `users/password/`,
+    { old_password, new_password },
+    {
+      headers: {
+        'X-CSRFToken': Cookie.get('csrftoken') || '',
+        'Content-Type': 'application/json',
+      },
+    }
+  );
 
 /* 회원가입 - POST */
 export const signUp = ({ username, password, email, nickname }) =>
