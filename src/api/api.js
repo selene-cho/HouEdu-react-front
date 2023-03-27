@@ -13,17 +13,17 @@ const instance = axios.create({
 
 /* 전체 Reviews - GET */
 export const getReviews = () =>
-  instance.get(`reviews/`).then((res) => res.data);
+  instance.get('reviews/').then((res) => res.data);
 
 /* MyReviews - GET */
 export const getMyReviews = () =>
-  instance.get(`users/myinfo/myreviews/`).then((res) => res.data);
+  instance.get('users/myinfo/myreviews/').then((res) => res.data);
 
 /* Review 작성 - POST */
 export const postReviews = ({ crs, star, content }) => {
   return instance
     .post(
-      `users/myinfo/myreviews/`,
+      'users/myinfo/myreviews/',
       { crs, star, content },
       {
         headers: {
@@ -52,13 +52,13 @@ export const deleteReviews = (id) =>
 
 /* 회원 기본정보 - GET */
 export const getMyInfo = () =>
-  instance.get(`users/myinfo/`).then((res) => res.data);
+  instance.get('users/myinfo/').then((res) => res.data);
 
 /* 일반 로그인 - POST */
 export const usernameLogIn = ({ username, password }) =>
   instance
     .post(
-      `users/login/`,
+      'users/login/',
       { username, password },
       {
         headers: {
@@ -71,7 +71,7 @@ export const usernameLogIn = ({ username, password }) =>
 /* 로그아웃 - POST */
 export const logOut = () =>
   instance
-    .post(`users/logout/`, null, {
+    .post('users/logout/', null, {
       headers: {
         'X-CSRFToken': Cookie.get('csrftoken') || '',
       },
@@ -82,7 +82,7 @@ export const logOut = () =>
 export const githubLogIn = (code) =>
   instance
     .post(
-      `users/github/`, // django의 users/github으로 코드 확인 요청
+      'users/github/', // django의 users/github으로 코드 확인 요청
       { code },
       {
         headers: {
@@ -96,7 +96,7 @@ export const githubLogIn = (code) =>
 export const kakaoLogIn = (code) =>
   instance
     .post(
-      `users/kakao/`,
+      'users/kakao/',
       { code },
       {
         headers: {
@@ -110,7 +110,7 @@ export const kakaoLogIn = (code) =>
 export const editNickName = ({ nickname }) =>
   instance
     .put(
-      `users/myinfo/`,
+      'users/myinfo/',
       { nickname },
       {
         headers: {
@@ -128,7 +128,7 @@ export const editPassword = () => instance.put(`users/password/`);
 export const signUp = ({ username, password, email, nickname }) =>
   instance
     .post(
-      `users/signup/`,
+      'users/signup/',
       { username, password, email, nickname },
       {
         headers: {
