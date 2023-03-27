@@ -1,9 +1,11 @@
 import styles from './MyReviewList.module.scss';
 import { useQuery } from '@tanstack/react-query';
-import { getMyReviews } from '../../api/api';
+import { deleteReviews, getMyReviews } from '../../api/api';
 import Review from './Review';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
-/* Review 전체 */
+/* MyReview 전체 */
 export default function MyReviewList() {
   const {
     isLoading,
@@ -14,19 +16,22 @@ export default function MyReviewList() {
   });
   console.log('myReviews', myReviews);
 
-  // const [items, setItems] = useState(data);
-  // console.log('items', items);
-  // // const [order, setOrder] = useState('created_at');
+  const [items, setItems] = useState([]);
 
-  // const sortedReviews = items.sort((a, b) => b[order] - a[order]);
+  useEffect(() => {
+    if (myReviews) {
+      setItems(myReviews);
+    }
+  }, [myReviews]);
+
+  const handleDelete = async (id) => {
+    const result = await deleteReviews(id);
+    if (!result) return;
+    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  };
 
   // const handleNewestClick = () => setOrder('created_at');
   // const handleBestClick = () => setOrder('star');
-
-  // const handleDelete = (id) => {
-  //   const nextData = items.filter((item) => item.id !== id);
-  //   setItems(nextData);
-  // };
 
   // const handleLoad = async (options) => {
   //   const { data } = await getReviews(options);
@@ -37,16 +42,6 @@ export default function MyReviewList() {
   //   setItems(data);
   // }, []);
 
-  // useEffect(() => {
-  //   handleLoad(order);
-  // }, [order]);
-
-  // useEffect(() => {
-  //   if (data) {
-  //     setItems(data);
-  //   }
-  // }, [order]);
-
   return (
     <section className={styles.container}>
       {isLoading && (
@@ -56,24 +51,20 @@ export default function MyReviewList() {
         </div>
       )}
       {error && <div>{error}</div>}
-      <div className={styles.wrapper}>
-        {/* <div className={styles.option}>
-          <div className={styles.order}>
-            <button onClick={handleNewestClick}>최신순</button>
-            <button onClick={handleBestClick}>별점 높은 순</button>
-          </div>
-        </div> */}
-        <ul className={styles.reviews}>
-          {myReviews &&
-            myReviews.map((review) => {
-              return (
-                <li key={review.id}>
-                  <Review review={review} />
-                </li>
-              );
-            })}
-        </ul>
-      </div>
+      {!isLoading && (
+        <div className={styles.wrapper}>
+          <ul className={styles.reviews}>
+            {myReviews &&
+              myReviews.map((review) => {
+                return (
+                  <li key={review.id}>
+                    <Review review={review} onDelete={handleDelete} />
+                  </li>
+                );
+              })}
+          </ul>
+        </div>
+      )}
     </section>
   );
 }

@@ -1,6 +1,5 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { BsCartPlusFill, BsPencilSquare } from 'react-icons/bs';
 import styles from './UserMenu.module.scss';
 import { FaCartPlus } from 'react-icons/fa';
 
@@ -36,7 +35,9 @@ export default function UserMenu({ user }) {
                 <FaCartPlus className={styles.carts} />
               </li>
             </Link>
-            <li>내강의실</li>
+            <Link to="http://13.125.223.139/lms/public/Courses?email=qkr133456@gmail.com">
+              <li>내강의실</li>
+            </Link>
             <Link to="/mypage">
               <li>마이페이지</li>
             </Link>

@@ -31,6 +31,19 @@ export const postReviews = ({ crs, star, content }) => {
 
 export const deleteReviews = id => instance.delete(`users/myinfo/myreviews/${id}`).then(res => res.data);
 
+// export const deleteReviews = (id) =>
+//   instance
+//     .delete(
+//       `users/myinfo/myreviews/${id}`
+//       { id },
+//       {
+//         headers: {
+//           'X-CSRFToken': Cookie.get('csrftoken') || '',
+//         },
+//       }
+//     )
+//     .then((res) => res.data);
+
 /* 회원 기본정보 GET */
 export const getMyInfo = () => instance.get(`users/myinfo/`).then(res => res.data);
 

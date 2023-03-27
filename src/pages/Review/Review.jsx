@@ -11,10 +11,12 @@ function formatDate(value) {
 
 /* Review 1개 */
 export default function Review({
-  review: { id, crs, star, created_at, user, content, img_url },
+  review: { id, user, crs, is_owner, created_at, star, content, img_url },
   onDelete,
 }) {
-  const handleDelete = () => onDelete(id);
+  // const handleDelete = (id) => {
+  //   onDelete(id);
+  // };
 
   return (
     // <img className={styles.avatar} src={img_url} alt={user} />
@@ -28,9 +30,17 @@ export default function Review({
       </div>
       <p className={styles.nickname}>{user.nickname}</p>
       <p className={styles.content}>{content}</p>
-      <button onClick={handleDelete}>
-        <FaTrash />
-      </button>
+      {is_owner === true ? (
+        <button
+          onClick={() => {
+            if (window.confirm(`정말로 삭제 하시겠습니까?`)) {
+              onDelete(id);
+            }
+          }}
+        >
+          <FaTrash />
+        </button>
+      ) : null}
     </div>
   );
 }
