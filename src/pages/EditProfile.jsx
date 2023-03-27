@@ -26,16 +26,9 @@ export default function EditProfile() {
     }
   }, [data]);
 
-  const handleChange = (name, value) => {
-    setUserInfo((preValues) => ({
-      ...preValues,
-      [name]: value,
-    }));
-  };
-
   const saveNickname = useMutation(editNickName, userInfo, {
     onSuccess: () => {
-      queryClient.invalidateQueries(['myinfo']);
+      queryClient.refetchQueries(['myinfo']);
       navigate('users/myinfo/');
     },
   });
@@ -44,36 +37,6 @@ export default function EditProfile() {
   const onSaveNickname = () => {
     saveNickname.mutate(userInfo);
   };
-
-  // const handleInputChange = (e) => {
-  //   const target = e.target;
-  //   const value = target.value;
-  //   const name = target.name;
-
-  //   setUserInfo({
-  //     ...userInfo,
-  //     [name]: value,
-  //   });
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const result = await editNickName(id);
-  //   if(!result) return;
-  //   setUserInfo((prevItems)=>...prevItems,)
-  // }
-
-  // fetch('http://127.0.0.1:8000/api/v1/users/myinfo/', {
-  //   method: 'PUT',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   },
-  //   body: JSON.stringify(userInfo),
-  // })
-  //   .then((response) => response.json())
-  //   .then((data) => console.log(data))
-  //   .catch((error) => console.error(error));
-  // };
 
   return (
     <div className={styles.container}>
@@ -89,7 +52,14 @@ export default function EditProfile() {
             type="text"
             name="nickname"
             value={userInfo.nickname}
-            onChange={handleChange}
+            onChange={(e) => {
+              setUserInfo((currentNickname) => {
+                return {
+                  ...currentNickname,
+                  nickname: e.target.value,
+                };
+              });
+            }}
           />
         </label>
         <label>
