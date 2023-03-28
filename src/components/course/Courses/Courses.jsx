@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import styles from './Courses.module.scss';
-import { Link } from 'react-router-dom';
 import { getCourses } from '../../../api/api';
 import { useQuery } from '@tanstack/react-query';
+import CourseItem from './CourseItem';
 
 const SHOW_COUNT_DEFAULT = 4;
 const ALL_CATEGORIES_FILTER = '*';
@@ -38,22 +38,11 @@ export default function Courses() {
 
    const slicedCourses = useMemo(() => filteredCourses.slice(0, showCount), [filteredCourses, showCount]);
 
-   const CourseItem = ({ course }) => (
-      <div className={styles.courses}>
-         <Link to={`/course/courses/${course.id}`} key={course.id} onClick={handleItemClick}>
-            <img className={styles.crs__image} src={course.thumbnail} alt={`courses ${course.id}`} />
-         </Link>
-         <div>
-            <span>{course.category.name}</span>
-            <p>{course.tcr.tcr_name}</p>
-            <p>{course.crs_name}</p>
-            <p>{course.price}</p>
-         </div>
-      </div>
-   );
-
    return (
       <div className={styles.container}>
+         {/* <div className={styles.search}>
+            <SearchCourse />
+         </div> */}
          <div className={styles.filterButtons}>
             <button type='button' className={selectedCategory === '*' ? styles.active : ''} onClick={() => handleFilter('*')}>
                모두
@@ -71,7 +60,7 @@ export default function Courses() {
 
          <div className={styles.course}>
             {slicedCourses.map(course => (
-               <CourseItem key={course.id} course={course} />
+               <CourseItem key={course.id} course={course} onClick={handleItemClick} />
             ))}
          </div>
          {hasMoreCourses && (

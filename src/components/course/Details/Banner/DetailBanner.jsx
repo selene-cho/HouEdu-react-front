@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styles from './DetailBanner.module.scss';
-import { Link } from 'react-router-dom';
 import { useCourse } from '../../../hooks/useCourse';
 import useUser from '../../../hooks/useUser';
 import { postCourse } from '../../../../api/api';
@@ -52,20 +51,28 @@ export default function DetailBanner() {
               <button onClick={handleModalOpen} className={styles.banner_btn}>
                 보러가기
               </button>
-
-              {/* 모달 */}
-              {showModal && (
-                <div className={styles.modal}>
-                  <div className={styles.modal__content}>
-                    <h2>인증 등록</h2>
-                    <p>내 강의실로 이동하시겠습니까?</p>
-                    <form onSubmit={handleOnSubmit}>
-                      <button type="submit">예</button>
-                    </form>
-                    <button onClick={handleModalClose}>아니오</button>
+                     {/* 모달 */}
+                     {showModal && (
+                        <div className={styles.modal}>
+                           <div className={styles.modal__content}>
+                              <p>강의를 등록 하시겠습니까?</p>
+                              <form onSubmit={handleOnSubmit}>
+                                 <button type='submit'>예</button>
+                              </form>
+                              <button onClick={handleModalClose}>아니오</button>
+                           </div>
+                        </div>
+                     )}
                   </div>
-                </div>
-              )}
+               )}
+
+               {/* 로그인아닐때 */}
+               {!isLoggedIn && (
+                  <button onClick={handleLoginClick} className={styles.banner_btn}>
+                     보러가기
+                  </button>
+               )}
+
             </div>
           )}
 
