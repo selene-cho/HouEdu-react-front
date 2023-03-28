@@ -4,10 +4,10 @@ import Teachers from './Teachers';
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Carousel />
       <p>강의목록</p>
       <Teachers />
-    </div>
+    </>
   );
 }

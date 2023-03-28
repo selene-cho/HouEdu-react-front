@@ -20,6 +20,7 @@ import MyPage from './pages/MyPage';
 import ReviewNotFound from './pages/Review/ReviewNotFound';
 import EditProfile from './pages/EditProfile';
 import EditPassword from './pages/EditPassword';
+import MyPageMain from './pages/MyPageMain';
 
 // const isLoggedIn = useReactiveVar(isLoggedInVar);
 
@@ -39,6 +40,7 @@ const router = createBrowserRouter([
         path: 'mypage',
         element: <MyPage />,
         children: [
+          { index: true, path: '', element: <MyPageMain /> },
           { path: 'edit/profile', element: <EditProfile /> },
           { path: 'edit/password', element: <EditPassword /> },
           { path: 'review', element: <MyReview /> },
