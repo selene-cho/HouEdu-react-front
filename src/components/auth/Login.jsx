@@ -92,31 +92,3 @@ export default function Login() {
     </div>
   );
 }
-
-// const [email, setEmail] = useState('');
-// const [password, setPassword] = useState('');
-
-// const onSubmit = (e) => {
-//   e.preventDefault();
-//   console.log('login click');
-//   isLoggedInVar(true);
-//   console.log(isLoggedInVar);
-// };
-
-// const onChange = (e) => {
-//   const { name, value } = e.currentTarget;
-
-//   console.log(name, value);
-
-//   if (name === 'email') {
-//     setEmail(value);
-//   } else if (name === 'password') {
-//     setPassword(value);
-//   }
-// };
-
-// const KAKAO_AUTH_URL = `"https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`;
-
-// const handleLogin = () => {
-//   window.location.lef = KAKAO_AUTH_URL;
-// };

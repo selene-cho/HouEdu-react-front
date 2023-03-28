@@ -13,7 +13,7 @@ export default function App() {
         <Outlet />
       </div>
       <Footer />
-      <ReactQueryDevtools />
+      {/* <ReactQueryDevtools /> */}
     </>
   );
 }
