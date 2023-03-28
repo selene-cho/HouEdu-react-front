@@ -3,6 +3,7 @@ import styles from './DetailBanner.module.scss';
 import { useCourse } from '../../../hooks/useCourse';
 import useUser from '../../../hooks/useUser';
 import { createCourse } from '../../../../api/api';
+import { Link } from 'react-router-dom';
 
 export default function DetailBanner() {
    const { data } = useCourse();
@@ -13,7 +14,7 @@ export default function DetailBanner() {
       e.preventDefault();
       if (data?.id) {
          await createCourse(data.id);
-         setShowModal(false);
+         // setShowModal(false);
       }
    };
 
@@ -53,14 +54,17 @@ export default function DetailBanner() {
                            보러가기
                         </button>
                      </form>
+
                      {/* 모달 */}
                      {showModal && (
                         <div className={styles.modal}>
                            <div className={styles.modal__content}>
                               <p>강의를 등록 하시겠습니까?</p>
-                              <form>
+
+                              <Link to='http://13.125.223.139/lms/public/Courses?email=admin@naver.com'>
                                  <button type='submit'>예</button>
-                              </form>
+                              </Link>
+
                               <button onClick={handleModalClose}>아니오</button>
                            </div>
                         </div>
