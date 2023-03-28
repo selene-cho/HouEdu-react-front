@@ -6,15 +6,18 @@ import { createCourse } from '../../../../api/api';
 import { Link } from 'react-router-dom';
 
 export default function DetailBanner() {
-   const { data } = useCourse();
-   const { isLoggedIn } = useUser();
+   const { course } = useCourse();
+   console.log(course);
+   const { isLoggedIn, user } = useUser();
+   console.log(user);
+   const userEmail = isLoggedIn ? user?.email : '';
+
    const [showModal, setShowModal] = useState(false);
 
    const handleOnSubmit = async e => {
       e.preventDefault();
-      if (data?.id) {
-         await createCourse(data.id);
-         // setShowModal(false);
+      if (course?.id) {
+         await createCourse(course.id);
       }
    };
 
@@ -42,9 +45,9 @@ export default function DetailBanner() {
       <section className={styles.container}>
          <div className={styles.banner}>
             <div className={styles.banner__info}>
-               <h3>{data?.crs_name}</h3>
-               <p>{data?.crs_goal}</p>
-               <p>{data?.crs_info}</p>
+               <h3>{course?.crs_name}</h3>
+               <p>{course?.crs_goal}</p>
+               <p>{course?.crs_info}</p>
 
                {/* login일때 */}
                {isLoggedIn && (
@@ -61,7 +64,7 @@ export default function DetailBanner() {
                            <div className={styles.modal__content}>
                               <p>강의를 등록 하시겠습니까?</p>
 
-                              <Link to='http://13.125.223.139/lms/public/Courses?email=admin@naver.com'>
+                              <Link to={`http://13.125.223.139/lms/public/Courses?email=${userEmail}`}>
                                  <button type='submit'>예</button>
                               </Link>
 
@@ -82,7 +85,7 @@ export default function DetailBanner() {
                </div>
             </div>
             <div className={styles.banner__image}>
-               <img className={styles.banner__img} src={data?.thumbnail} alt={data?.id} />
+               <img className={styles.banner__img} src={course?.thumbnail} alt={course?.id} />
             </div>
          </div>
 

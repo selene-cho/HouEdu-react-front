@@ -10,7 +10,7 @@ export default function CourseItem({ course, onClick }) {
          </Link>
          <div>
             <span>{course.category.name}</span>
-            <p>{course.tcr.tcr_name}</p>
+            <p>{course.tcr?.tcr_name}</p>
             <p>{course.crs_name}</p>
             <p>{course.price}</p>
          </div>

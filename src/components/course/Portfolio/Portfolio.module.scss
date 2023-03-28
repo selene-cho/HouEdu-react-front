@@ -1,3 +1,5 @@
+@import '../../../scss/styles.scss';
+
 .container {
    display: flex;
    justify-content: center;
@@ -49,13 +51,13 @@
          padding: 1.5rem;
 
          .title {
-            font-size: 0.8rem;
+            font-size: $sm;
             font-weight: bold;
             margin: 0;
          }
 
          .date {
-            font-size: 0.8rem;
+            font-size: $sm;
             margin: 0;
             font-style: italic;
          }

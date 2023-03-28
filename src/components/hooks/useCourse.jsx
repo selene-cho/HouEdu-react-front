@@ -6,6 +6,6 @@ export function useCourse() {
    const { courseId } = useParams();
    const { data } = useQuery([`courses`, courseId], getCourse);
    return {
-      data: data,
+      course: data,
    };
 }
