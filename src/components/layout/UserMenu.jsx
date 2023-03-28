@@ -1,10 +1,15 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { BsCartPlusFill, BsPencilSquare } from 'react-icons/bs';
 import styles from './UserMenu.module.scss';
 import { FaCartPlus } from 'react-icons/fa';
+import { useQuery } from '@tanstack/react-query';
+import { getMyInfo } from '../../api/api';
+
+const PHP_BASE_URL = 'http://13.125.223.139/lms/public/Courses?email=';
 
 export default function UserMenu({ user }) {
+  console.log('user', user);
+  console.log('user.email', user.email);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleButtonClick = useCallback((e) => {
@@ -36,7 +41,9 @@ export default function UserMenu({ user }) {
                 <FaCartPlus className={styles.carts} />
               </li>
             </Link>
-            <li>내강의실</li>
+            <Link to={`${PHP_BASE_URL}${user.email}`}>
+              <li>내강의실</li>
+            </Link>
             <Link to="/mypage">
               <li>마이페이지</li>
             </Link>

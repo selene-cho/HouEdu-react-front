@@ -6,7 +6,6 @@ import Logo from '../common/Logo';
 import { useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { signUp } from '../../api/api';
-import { useCallback, useState } from 'react';
 
 export default function SignUp() {
   const {

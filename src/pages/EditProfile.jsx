@@ -1,60 +1,50 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useState, useEffect } from 'react';
-import { getMyInfo } from '../api/api';
+import { useNavigate } from 'react-router-dom';
+import { getMyInfo, editNickName } from '../api/api';
 import styles from './EditProfile.module.scss';
 
-export default function EditProfile() {
-  const { data } = useQuery(['getMyInfo'], getMyInfo);
+const INITIAL_VALUES = {
+  username: '',
+  nickname: '',
+  email: '',
+};
 
-  const [userInfo, setUserInfo] = useState({
-    username: '',
-    nickname: '',
-    email: '',
-    password: '',
-  });
+export default function EditProfile() {
+  const { data } = useQuery(['myinfo'], getMyInfo, { staleTime: 2000 });
+  console.log('data', data);
+
+  const queryClient = useQueryClient();
+  const navigate = useNavigate();
+
+  const [userInfo, setUserInfo] = useState(INITIAL_VALUES);
+  console.log('userInfo', userInfo);
 
   useEffect(() => {
-    setUserInfo(data);
+    if (data) {
+      setUserInfo(data);
+    }
   }, [data]);
 
-  const handleInputChange = (event) => {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
+  const saveNickname = useMutation(editNickName, userInfo, {
+    onSuccess: () => {
+      queryClient.refetchQueries(['myinfo']);
+      navigate('users/myinfo/');
+    },
+  });
+  console.log('saveNickname', saveNickname);
 
-    setUserInfo({
-      ...userInfo,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    fetch('http://127.0.0.1:8000/api/v1/users/myinfo', {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(userInfo),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
+  const onSaveNickname = () => {
+    saveNickname.mutate(userInfo);
   };
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>회원 정보 수정</h1>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <h1 className={styles.title}>회원정보 수정</h1>
+      <form className={styles.form}>
         <label>
           아이디 :
-          <input
-            type="text"
-            name="username"
-            value={userInfo.username}
-            disabled
-          />
+          <input type="text" name="username" value={data.username} disabled />
         </label>
         <label>
           닉네임 :
@@ -62,23 +52,23 @@ export default function EditProfile() {
             type="text"
             name="nickname"
             value={userInfo.nickname}
-            onChange={handleInputChange}
+            onChange={(e) => {
+              setUserInfo((currentNickname) => {
+                return {
+                  ...currentNickname,
+                  nickname: e.target.value,
+                };
+              });
+            }}
           />
         </label>
         <label>
           이메일 :
-          <input type="email" name="email" value={userInfo.email} disabled />
+          <input type="email" name="email" value={data.email} disabled />
         </label>
-        <label>
-          비밀번호 :
-          <input
-            type="password"
-            name="password"
-            value={userInfo.password}
-            onChange={handleInputChange}
-          />
-        </label>
-        <button type="submit">수정</button>
+        <button type="submit" onClick={onSaveNickname}>
+          수정
+        </button>
       </form>
     </div>
   );
