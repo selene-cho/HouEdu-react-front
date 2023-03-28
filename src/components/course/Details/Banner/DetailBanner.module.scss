@@ -30,19 +30,16 @@
             font-size: 1rem;
             padding: 0.5rem;
          }
-         a {
-            width: 15rem;
-            padding: 0 0.5rem;
-            padding-top: 2rem;
-         }
 
          .banner_btn {
             background-color: #93abbf;
-            width: 100%;
-            height: 3rem;
-            font-size: 1.2rem;
+            width: 15rem;
+            padding: 0.5rem;
+            font-size: 1.5rem;
             cursor: pointer;
             border-radius: 0.5rem;
+            margin-top: 2rem;
+
             &:hover {
                background-color: #6e7378;
             }
@@ -60,6 +57,73 @@
             width: 100%;
             height: 22.5rem;
             border-radius: 1rem;
+         }
+      }
+   }
+
+   .modal {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.648);
+      z-index: 9999;
+
+      .modal__content {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         flex-direction: column;
+         background-color: #fff;
+         color: #333;
+         padding: 3rem;
+         border-radius: 0.5rem;
+         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+         gap: 1rem;
+
+         h2 {
+            font-size: 1.5rem;
+         }
+
+         p {
+            font-size: 1rem;
+            padding: 0.3rem;
+         }
+
+         button {
+            font-size: 1rem;
+            font-weight: 600;
+            width: 100%;
+            border: 1px solid #0378a6;
+            color: #0378a6;
+            padding: 0.4rem;
+
+            &:hover {
+               background-color: #6e7378;
+               color: #fff;
+            }
+         }
+
+         form {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+         }
+      }
+
+      .modal__footer {
+         display: flex;
+         justify-content: flex-end;
+         margin-top: 2rem;
+
+         button {
+            border: 1px solid #000;
+            margin-left: 1rem;
          }
       }
    }

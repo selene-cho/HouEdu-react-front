@@ -18,7 +18,6 @@ export default function Courses() {
       window.scrollTo(0, 0);
    };
 
-   // courses 필터링
    const filteredCourses = useMemo(() => {
       if (!data) return [];
 
@@ -29,12 +28,14 @@ export default function Courses() {
       return data.filter(course => course?.category.name === selectedCategory);
    }, [data, selectedCategory]);
 
-   const hasMoreCourses = useMemo(() => showCount < filteredCourses.length, [showCount, filteredCourses]);
-
-   const handleShowMore = () => setShowCount(prevCount => prevCount + SHOW_COUNT_DEFAULT);
    const handleFilter = category => setSelectedCategory(category);
 
-   // showCount 개수만큼 courses 슬라이싱
+   const hasMoreCourses = showCount < filteredCourses.length;
+
+   const handleShowMore = () => {
+      setShowCount(prevCount => prevCount + SHOW_COUNT_DEFAULT);
+   };
+
    const slicedCourses = useMemo(() => filteredCourses.slice(0, showCount), [filteredCourses, showCount]);
 
    const CourseItem = ({ course }) => (
