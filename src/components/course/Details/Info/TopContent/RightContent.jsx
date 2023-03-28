@@ -4,7 +4,7 @@ import styles from './TopContent.module.scss';
 
 export default function RightContent() {
    const data = useCourse();
-   console.log(data.data);
+
    return (
       <div className={styles.right_content}>
          <div className={styles.right}>
