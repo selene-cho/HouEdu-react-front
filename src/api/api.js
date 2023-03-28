@@ -3,12 +3,12 @@ import Cookies from 'js-cookie';
 import Cookie from 'js-cookie';
 
 const instance = axios.create({
-  // baseURL: "http://3.38.150.223/api/v1/",
-  baseURL: 'http://127.0.0.1:8000/api/v1/',
-  headers: {
-    'X-CSRFToken': Cookies.get('csrftoken') || '',
-  },
-  withCredentials: true,
+   //baseURL: "http://3.38.150.223/api/v1/",
+   baseURL: 'http://127.0.0.1:8000/api/v1/',
+   headers: {
+      'X-CSRFToken': Cookies.get('csrftoken') || '',
+   },
+   withCredentials: true,
 });
 
 /* 전체 Reviews - GET */
@@ -155,19 +155,6 @@ export const getCourse = ({ queryKey }) => {
 };
 
 // post
-// export const postCourses = () =>
-//   instance.post('courses/').then((res) => res.data);
-
-// export const postCourse = async ({ queryKey }) => {
-//   const [, courseId] = queryKey || [];
-//   try {
-//     const response = await instance.post(`courses/${courseId}`);
-//     console.log(response.data);
-//     return response.data;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
 export const createCourse = async courseData => {
    try {
       const response = await instance.post(`courses/${courseData}/`);
