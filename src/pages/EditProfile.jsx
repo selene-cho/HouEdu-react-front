@@ -28,7 +28,7 @@ export default function EditProfile() {
 
   const saveNickname = useMutation(editNickName, userInfo, {
     onSuccess: () => {
-      queryClient.refetchQueries(['myinfo']);
+      queryClient.invalidQueries(['myinfo']);
       navigate('users/myinfo/');
     },
   });

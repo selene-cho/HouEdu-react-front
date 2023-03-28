@@ -23,7 +23,7 @@ export default function ReviewList() {
 
   const sortedReviews = items.sort((a, b) => b[order] - a[order]);
 
-  const handleNewestClick = () => setOrder();
+  const handleNewestClick = () => setOrder('id');
   const handleBestClick = () => setOrder('star');
 
   const handleDelete = async (id) => {

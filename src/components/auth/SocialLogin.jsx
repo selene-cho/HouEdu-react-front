@@ -15,11 +15,11 @@ export default function SocialLogin() {
 
   return (
     <div className={styles.snsLogin}>
-      <button className={styles.google}>
+      {/* <button className={styles.google}>
         <Link to="" className={styles.link}>
           <FcGoogle className={styles.sns} />
         </Link>
-      </button>
+      </button> */}
       <button className={styles.github}>
         <Link
           to={`https://github.com/login/oauth/authorize?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&scope=read:user,user:email`}

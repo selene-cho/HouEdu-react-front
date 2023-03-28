@@ -1,23 +1,14 @@
-// import { useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
-import { FaKey, FaEnvelope, FaUser } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
+import { FaKey, FaUser } from 'react-icons/fa';
 import styles from './Login.module.scss';
 import Logo from '../common/Logo';
-
-// import { isLoggedInVar } from '../../apollo';
-// import { REST_API_KEY, REDIRECT_URI } from './KakaoLoginData';
 import SocialLogin from './SocialLogin';
 import { useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { usernameLogIn } from '../../api/api';
 
 export default function Login() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    onInvalid,
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const queryClient = useQueryClient();
   const navigate = useNavigate();
@@ -38,8 +29,8 @@ export default function Login() {
 
   const onSubmit = ({ username, password }) => {
     mutation.mutate({ username, password });
-    console.log('username', username);
-    console.log('password', password);
+    // console.log('username', username);
+    // console.log('password', password);
   };
 
   return (
@@ -47,7 +38,7 @@ export default function Login() {
       <Logo />
       <div className={styles.wrapper}>
         <p>
-          이메일로&nbsp;
+          회원이 아니신가요?&nbsp;
           <Link to="/signup">
             <span>회원가입하기</span>
           </Link>
@@ -78,11 +69,11 @@ export default function Login() {
               {mutation.isError}
             </div>
           </div>
-          <div>
+          {/* <div>
             <a href="#">아이디</a>
             <span>&nbsp;|&nbsp;</span>
             <a href="#">비밀번호 찾기</a>
-          </div>
+          </div> */}
           {mutation.isError ? (
             <div className={styles.error}>
               <p>아이디 또는 비밀번호를 잘못 입력했습니다.</p>
