@@ -23,7 +23,7 @@ export default function EditPassword() {
 
   const savePassword = useMutation(editPassword, password, {
     onSuccess: () => {
-      queryClient.refetchQueries(['myinfo']);
+      queryClient.invalidateQueries(['myinfo']);
       navigate('/');
     },
   });
@@ -75,17 +75,18 @@ export default function EditPassword() {
           onChange={onChangePassword}
           placeholder="새 비밀번호"
         />
-        {password && <p>{passwordMessage}</p>}
+        {password && <p className={styles.errorMessage}>{passwordMessage}</p>}
         <input
           type="password"
           value={passwordConfirm}
           onChange={onChangePasswordConfirm}
           placeholder="새 비밀번호 확인"
         />
-        {passwordConfirm && <p>{passwordConfirmMessage}</p>}
+        {passwordConfirm && (
+          <p className={styles.errorMessage}>{passwordConfirmMessage}</p>
+        )}
 
         <button type="submit" onClick={onSavePassword}>
-          {passwordConfirm && <p>{passwordConfirmMessage}</p>}
           변경 완료
         </button>
       </form>

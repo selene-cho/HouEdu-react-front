@@ -22,10 +22,17 @@
       .navLeft {
         display: flex;
         margin: 0 20px;
-        font-size: 16px;
+        font: {
+          size: $lg;
+          weight: 600;
+        }
         li {
-          margin-right: 20px;
-          letter-spacing: 2px;
+          margin-right: 25px;
+          letter-spacing: 3px;
+          &:first-child {
+            margin-left: 30px;
+            letter-spacing: 10px;
+          }
         }
       }
       .navRight {

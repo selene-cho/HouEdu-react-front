@@ -2,14 +2,12 @@ import React, { useCallback, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './UserMenu.module.scss';
 import { FaCartPlus } from 'react-icons/fa';
-import { useQuery } from '@tanstack/react-query';
-import { getMyInfo } from '../../api/api';
 
 const PHP_BASE_URL = 'http://13.125.223.139/lms/public/Courses?email=';
 
 export default function UserMenu({ user }) {
-  console.log('user', user);
-  console.log('user.email', user.email);
+  // console.log('user', user);
+  // console.log('user.email', user.email);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleButtonClick = useCallback((e) => {

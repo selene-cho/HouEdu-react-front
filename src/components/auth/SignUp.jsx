@@ -48,11 +48,6 @@ export default function SignUp() {
       );
     }
     mutation.mutate({ username, email, password, nickname });
-    // console.log('username', username);
-    // console.log('email', email);
-    // console.log('password', password);
-    // console.log('passwordConfirm', passwordConfirm);
-    // console.log('nickname', nickname);
   };
 
   return (

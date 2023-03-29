@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getMyInfo, editNickName } from '../api/api';
+import useUser from '../components/hooks/useUser';
 import styles from './EditProfile.module.scss';
 
 const INITIAL_VALUES = {
@@ -11,14 +12,20 @@ const INITIAL_VALUES = {
 };
 
 export default function EditProfile() {
-  const { data } = useQuery(['myinfo'], getMyInfo, { staleTime: 2000 });
-  console.log('data', data);
+  const { data } = useQuery(['myinfo'], getMyInfo, {
+    retry: false,
+    refetchOnWindowFocus: false,
+    staleTime: 1000 * 60,
+  });
+
+  // const { user } = useUser();
+  // console.log('user', user);
 
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
   const [userInfo, setUserInfo] = useState(INITIAL_VALUES);
-  console.log('userInfo', userInfo);
+  // console.log('userInfo', userInfo);
 
   useEffect(() => {
     if (data) {
@@ -28,11 +35,11 @@ export default function EditProfile() {
 
   const saveNickname = useMutation(editNickName, userInfo, {
     onSuccess: () => {
-      queryClient.invalidQueries(['myinfo']);
-      navigate('users/myinfo/');
+      queryClient.invalidateQueries(['myinfo']);
+      navigate('/');
     },
   });
-  console.log('saveNickname', saveNickname);
+  // console.log('saveNickname', saveNickname);
 
   const onSaveNickname = () => {
     saveNickname.mutate(userInfo);

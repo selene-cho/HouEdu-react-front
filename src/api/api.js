@@ -12,7 +12,7 @@ const instance = axios.create({
    withCredentials: true,
 });
 
-/* 전체 Reviews - GET */
+// /* 전체 Reviews - GET */
 export const getReviews = () =>
   instance.get('reviews/').then((res) => res.data);
 
