@@ -24,12 +24,12 @@ export default function SocialLogin() {
   return (
     <div className={styles.snsLogin}>
       <button className={styles.google}>
-        <Link
+        {/* <Link
           to={`https://accounts.google.com/o/oauth2/v2/auth?${google_params}`}
           className={styles.link}
         >
           <FcGoogle className={styles.sns} />
-        </Link>
+        </Link> */}
       </button>
       <button className={styles.github}>
         <Link
