@@ -2,7 +2,6 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getMyInfo, editNickName } from '../api/api';
-import useUser from '../components/hooks/useUser';
 import styles from './EditProfile.module.scss';
 
 const INITIAL_VALUES = {
@@ -15,11 +14,8 @@ export default function EditProfile() {
   const { data } = useQuery(['myinfo'], getMyInfo, {
     retry: false,
     refetchOnWindowFocus: false,
-    staleTime: 1000 * 60,
+    staleTime: 3000,
   });
-
-  // const { user } = useUser();
-  // console.log('user', user);
 
   const queryClient = useQueryClient();
   const navigate = useNavigate();
@@ -33,7 +29,7 @@ export default function EditProfile() {
     }
   }, [data]);
 
-  const saveNickname = useMutation(editNickName, userInfo, {
+  const saveNickname = useMutation(editNickName, {
     onSuccess: () => {
       queryClient.invalidateQueries(['myinfo']);
       navigate('/');
@@ -51,7 +47,12 @@ export default function EditProfile() {
       <form className={styles.form}>
         <label>
           아이디 :
-          <input type="text" name="username" value={data.username} disabled />
+          <input
+            type="text"
+            name="username"
+            value={userInfo.username}
+            disabled
+          />
         </label>
         <label>
           닉네임 :
@@ -71,7 +72,7 @@ export default function EditProfile() {
         </label>
         <label>
           이메일 :
-          <input type="email" name="email" value={data.email} disabled />
+          <input type="email" name="email" value={userInfo.email} disabled />
         </label>
         <button type="submit" onClick={onSaveNickname}>
           수정

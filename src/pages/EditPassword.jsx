@@ -1,94 +1,88 @@
+import { useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import styles from './EditPassword.module.scss';
 import { editPassword } from '../api/api';
+import styles from './EditPassword.module.scss';
+import { useNavigate } from 'react-router-dom';
 
-export default function EditPassword() {
+const INITIAL_VALUES = {
+  oldPassword: '',
+  newPassword: '',
+  confirmNewPassword: '',
+};
+
+export default function ChangePassword() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
-  const [password, setPassword] = useState();
-  const [passwordConfirm, setPasswordConfirm] = useState();
+  const [passwords, setPasswords] = useState(INITIAL_VALUES);
+  const [error, setError] = useState(null);
 
-  const [passwordMessage, setPasswordMessage] = useState();
-  const [passwordConfirmMessage, setPasswordConfirmMessage] = useState();
-
-  const [isPassword, setIsPassword] = useState(false);
-  const [isPasswordConfirm, setIsPasswordConfirm] = useState(false);
-
-  useEffect(() => {
-    setPassword();
-  }, []);
-
-  const savePassword = useMutation(editPassword, password, {
+  const changePasswordMutation = useMutation(editPassword, {
     onSuccess: () => {
+      setPasswords(INITIAL_VALUES);
+      setError(null);
+      alert('비밀번호가 변경 되었습니다. 다시 로그인해주세요.');
       queryClient.invalidateQueries(['myinfo']);
       navigate('/');
     },
+    onError: () => {
+      setError('비밀번호를 잘못 입력하셨습니다.');
+    },
   });
-  console.log('savePassword', savePassword);
 
-  const onSavePassword = () => {
-    savePassword.mutate(password);
-  };
-
-  const onChangePassword = (e) => {
-    const passwordCurrent = e.target.value;
-    setPassword(passwordCurrent);
-    if (passwordCurrent.length < 8) {
-      setPasswordMessage('비밀번호를 8자 이상 입력해주세요');
-      setIsPassword(false);
-    } else {
-      setPasswordMessage('사용 가능한 비밀번호 입니다.');
-      setIsPassword(true);
-    }
-  };
-
-  const onChangePasswordConfirm = (e) => {
-    const passwordConfirmCurrent = e.target.value;
-    setPasswordConfirm(passwordConfirmCurrent);
-    if (password === passwordConfirmCurrent) {
-      setPasswordConfirmMessage('비밀번호가 일치합니다.');
-      setIsPasswordConfirm(true);
-    } else {
-      setPasswordConfirmMessage(
-        '비밀번호가 일치하지 않습니다. 다시 입력해주시기 바람니다.'
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (passwords.newPassword !== passwords.confirmNewPassword) {
+      setError(
+        '새 비밀번호와 확인 비밀번호가 서로 일치하는지 다시 한번 확인해주세요.'
       );
-      setIsPasswordConfirm(false);
+      return;
     }
+    changePasswordMutation.mutate({
+      old_password: passwords.oldPassword,
+      new_password: passwords.newPassword,
+    });
   };
 
   return (
     <div className={styles.container}>
-      <form>
-        <h1>비밀번호 변경</h1>
-        <input
-          type="password"
-          name="old_password"
-          placeholder="현재 비밀번호"
-        />
-        <input
-          type="password"
-          name="new_password"
-          value={password}
-          onChange={onChangePassword}
-          placeholder="새 비밀번호"
-        />
-        {password && <p className={styles.errorMessage}>{passwordMessage}</p>}
-        <input
-          type="password"
-          value={passwordConfirm}
-          onChange={onChangePasswordConfirm}
-          placeholder="새 비밀번호 확인"
-        />
-        {passwordConfirm && (
-          <p className={styles.errorMessage}>{passwordConfirmMessage}</p>
-        )}
-
-        <button type="submit" onClick={onSavePassword}>
-          변경 완료
-        </button>
+      <h1 className={styles.title}>비밀번호 변경</h1>
+      <form className={styles.form} onSubmit={onSubmit}>
+        <div>
+          <input
+            type="password"
+            name="oldPassword"
+            value={passwords.oldPassword}
+            placeholder="현재 비밀번호"
+            onChange={(e) =>
+              setPasswords({ ...passwords, oldPassword: e.target.value })
+            }
+          />
+        </div>
+        <div>
+          <input
+            type="password"
+            name="oldPassword"
+            value={passwords.newPassword}
+            placeholder="새 비밀번호"
+            onChange={(e) =>
+              setPasswords({ ...passwords, newPassword: e.target.value })
+            }
+          />
+        </div>
+        <div>
+          <input
+            type="password"
+            name="confirm-password"
+            value={passwords.confirmNewPassword}
+            placeholder="비밀번호 확인"
+            onChange={(e) =>
+              setPasswords({ ...passwords, confirmNewPassword: e.target.value })
+            }
+          />
+        </div>
+        <button type="submit">변경 완료</button>
+        {error && <p>{error}</p>}
       </form>
     </div>
   );

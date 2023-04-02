@@ -3,13 +3,13 @@ import Cookies from 'js-cookie';
 import Cookie from 'js-cookie';
 
 const instance = axios.create({
-   // baseURL: "https://houedu.duckdns.org/api/v1/",
-   // baseURL: "http://3.38.150.223/api/v1/",
-   baseURL: 'http://127.0.0.1:8000/api/v1/',
-   headers: {
-      'X-CSRFToken': Cookies.get('csrftoken') || '',
-   },
-   withCredentials: true,
+  // baseURL: 'https://houedu.duckdns.org/api/v1/',
+  // baseURL: 'http://3.38.150.223/api/v1/',
+  baseURL: 'http://127.0.0.1:8000/api/v1/',
+  headers: {
+    'X-CSRFToken': Cookies.get('csrftoken') || '',
+  },
+  withCredentials: true,
 });
 
 // /* 전체 Reviews - GET */

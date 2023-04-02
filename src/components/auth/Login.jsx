@@ -6,8 +6,20 @@ import SocialLogin from './SocialLogin';
 import { useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { usernameLogIn } from '../../api/api';
+import { useState } from 'react';
+import Modal from '../common/Modal';
 
 export default function Login() {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   const { register, handleSubmit } = useForm();
 
   const queryClient = useQueryClient();
@@ -69,11 +81,6 @@ export default function Login() {
               {mutation.isError}
             </div>
           </div>
-          {/* <div>
-            <a href="#">아이디</a>
-            <span>&nbsp;|&nbsp;</span>
-            <a href="#">비밀번호 찾기</a>
-          </div> */}
           {mutation.isError ? (
             <div className={styles.error}>
               <p>아이디 또는 비밀번호를 잘못 입력했습니다.</p>
@@ -82,6 +89,17 @@ export default function Login() {
           ) : null}
           <button type="submit">로그인</button>
         </form>
+        {/* <div className={styles.searchIdPw}>
+          <button onClick={openModal}>아이디</button>
+          <Modal open={modalOpen} close={closeModal} header="아이디 찾기">
+            아이디 찾기
+          </Modal>
+          <span>&nbsp;|&nbsp;</span>
+          <button onClick={openModal}>비밀번호 찾기</button>
+          <Modal open={modalOpen} close={closeModal} header="비밀번호 찾기">
+            비밀번호 찾기
+          </Modal>
+        </div> */}
         <div className={styles.divider}>
           <div></div>
           <span>OR</span>
