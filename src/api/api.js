@@ -94,6 +94,20 @@ export const kakaoLogIn = (code) =>
     )
     .then((res) => res.status);
 
+/* Google 로그인 - POST */
+export const googleLogIn = (code) =>
+  instance
+    .post(
+      'users/google/',
+      { code },
+      {
+        headers: {
+          'X-CSRFToken': Cookie.get('csrftoken') || '',
+        },
+      }
+    )
+    .then((res) => res.status);
+
 /* 닉네임 수정 - PUT */
 export const editNickName = ({ nickname }) =>
   instance

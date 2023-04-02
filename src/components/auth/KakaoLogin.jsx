@@ -10,7 +10,7 @@ export default function KakaoLogin() {
   const navigate = useNavigate();
 
   const confirmLogin = async () => {
-    const params = new URLSearchParams(search); //search는 github에서 받아온 ?code 뒤 숫자 코드
+    const params = new URLSearchParams(search);
     const code = params.get('code');
     if (code) {
       const status = await kakaoLogIn(code);

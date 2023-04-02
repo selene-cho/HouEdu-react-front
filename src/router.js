@@ -21,6 +21,7 @@ import ReviewNotFound from './pages/Review/ReviewNotFound';
 import EditProfile from './pages/EditProfile';
 import EditPassword from './pages/EditPassword';
 import MyPageMain from './pages/MyPageMain';
+import GoogleLogin from './components/auth/GoogleLogin';
 
 // const isLoggedIn = useReactiveVar(isLoggedInVar);
 
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
       {
         path: 'kakao',
         element: <KakaoLogin />,
+      },
+      {
+        path: 'google',
+        element: <GoogleLogin />,
       },
     ],
   },
