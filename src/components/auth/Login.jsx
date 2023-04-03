@@ -6,19 +6,19 @@ import SocialLogin from './SocialLogin';
 import { useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { usernameLogIn } from '../../api/api';
-import { useState } from 'react';
-import Modal from '../common/Modal';
+// import { useState } from 'react';
+// import Modal from '../common/Modal';
 
 export default function Login() {
-  const [modalOpen, setModalOpen] = useState(false);
+  // const [modalOpen, setModalOpen] = useState(false);
 
-  const openModal = () => {
-    setModalOpen(true);
-  };
+  // const openModal = () => {
+  //   setModalOpen(true);
+  // };
 
-  const closeModal = () => {
-    setModalOpen(false);
-  };
+  // const closeModal = () => {
+  //   setModalOpen(false);
+  // };
 
   const { register, handleSubmit } = useForm();
 
@@ -40,6 +40,7 @@ export default function Login() {
   });
 
   const onSubmit = ({ username, password }) => {
+    // { username, password } API Call 할 때의 매개변수
     mutation.mutate({ username, password });
     // console.log('username', username);
     // console.log('password', password);

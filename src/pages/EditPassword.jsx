@@ -39,9 +39,17 @@ export default function ChangePassword() {
       return;
     }
     changePasswordMutation.mutate({
+      // API call 할 때의 매개변수
       old_password: passwords.oldPassword,
       new_password: passwords.newPassword,
     });
+  };
+
+  const onPasswordChange = (e) => {
+    const { name, value } = e.currentTarget;
+    console.log(name, value);
+
+    setPasswords({ ...passwords, [name]: value });
   };
 
   return (
@@ -54,31 +62,25 @@ export default function ChangePassword() {
             name="oldPassword"
             value={passwords.oldPassword}
             placeholder="현재 비밀번호"
-            onChange={(e) =>
-              setPasswords({ ...passwords, oldPassword: e.target.value })
-            }
+            onChange={onPasswordChange}
           />
         </div>
         <div>
           <input
             type="password"
-            name="oldPassword"
+            name="newPassword"
             value={passwords.newPassword}
             placeholder="새 비밀번호"
-            onChange={(e) =>
-              setPasswords({ ...passwords, newPassword: e.target.value })
-            }
+            onChange={onPasswordChange}
           />
         </div>
         <div>
           <input
             type="password"
-            name="confirm-password"
+            name="confirmNewPassword"
             value={passwords.confirmNewPassword}
             placeholder="비밀번호 확인"
-            onChange={(e) =>
-              setPasswords({ ...passwords, confirmNewPassword: e.target.value })
-            }
+            onChange={onPasswordChange}
           />
         </div>
         <button type="submit">변경 완료</button>
