@@ -20,7 +20,11 @@ export default function Login() {
   //   setModalOpen(false);
   // };
 
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting },
+  } = useForm();
 
   const queryClient = useQueryClient();
   const navigate = useNavigate();
@@ -88,7 +92,9 @@ export default function Login() {
               <p>입력하신 내용을 다시 확인해주세요.</p>
             </div>
           ) : null}
-          <button type="submit">로그인</button>
+          <button type="submit" disabled={isSubmitting}>
+            로그인
+          </button>
         </form>
         {/* <div className={styles.searchIdPw}>
           <button onClick={openModal}>아이디</button>

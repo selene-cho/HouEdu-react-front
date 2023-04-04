@@ -10,11 +10,12 @@ import { signUp } from '../../api/api';
 export default function SignUp() {
   const {
     register,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     handleSubmit,
     setError,
     getValues,
   } = useForm();
+  console.log(errors);
 
   const queryClient = useQueryClient();
   const navigate = useNavigate();
@@ -102,7 +103,6 @@ export default function SignUp() {
             <div className={styles.inputBox}>
               <FaKey className={styles.icon} />
               <input
-                id="password"
                 type="password"
                 {...register('password', {
                   required: '비밀번호를 입력해주세요.',
@@ -166,7 +166,9 @@ export default function SignUp() {
             )}
           </div>
           {mutation.isError}
-          <button type="submit">회원가입</button>
+          <button type="submit" disabled={isSubmitting}>
+            회원가입
+          </button>
         </form>
       </div>
     </div>

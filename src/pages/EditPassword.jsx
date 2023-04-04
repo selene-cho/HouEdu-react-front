@@ -47,8 +47,7 @@ export default function ChangePassword() {
 
   const onPasswordChange = (e) => {
     const { name, value } = e.currentTarget;
-    console.log(name, value);
-
+    // console.log(name, value);
     setPasswords({ ...passwords, [name]: value });
   };
 
